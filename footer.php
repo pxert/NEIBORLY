@@ -1,8 +1,13 @@
-<footer class="row row-cols-5 py-5 my-5 border-top" style="background-color: #F9DCDF;">
+
+
+
+<div class="container-fluid m-0 p-0">
+
+  <footer class="row row-cols-5 py-5 my-5 border-top" style="background-color: #F9DCDF;">
 
   <div class="col">
   <h5>Découvrir</h5>
-  <P>A propos<p
+  <P>A propos</p>
   <p class="text-muted">© 2024 </p>
 
 </div>
@@ -43,7 +48,9 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
-    <?php wp_footer(); ?>
+    
 </footer>
+
+<?php wp_footer(); ?>
 </body>
 </html>

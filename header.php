@@ -7,7 +7,8 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body  class="d-flex flex-column min-vh-100" <?php body_class(); ?>>
+
   <?php wp_body_open(); ?>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #E4AEB4;">
