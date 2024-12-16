@@ -1,14 +1,9 @@
-<?php
-/* Template Name: offres-aide */
+<?
+/* Template Name: demandes-aides */
 ?>
 
 <?php get_header(); ?>
-
-<!-- Formulario de búsqueda específico para "Offres d'aide" -->
-<div class="container mt-4">
-    <?php echo get_search_form(); ?>
-</div>
-
+<?php echo get_search_form();?>
 <main class="d-flex flex-nowrap">
 
     <!-- Sidebar -->
@@ -52,7 +47,7 @@
 
     <!-- Contenido Principal -->
     <div class="main-content p-4">
-        <h1>Offres d'aide</h1>
+        <h1>Demandes d'aide</h1>
         <p>Bienvenido a la página de ofertas de ayuda.</p>
         <div class="alert alert-info" role="alert">
             Este es el contenido principal de la página.
@@ -60,5 +55,4 @@
     </div>
 
 </main>
-
 <?php get_footer(); ?>

@@ -1,5 +1,5 @@
-<?php
-/* Template Name: offres-aide */
+<?
+/* Template Name: second-main */
 ?>
 
 <?php get_header(); ?>
@@ -52,8 +52,8 @@
 
     <!-- Contenido Principal -->
     <div class="main-content p-4">
-        <h1>Offres d'aide</h1>
-        <p>Bienvenido a la página de ofertas de ayuda.</p>
+        <h1>Second main</h1>
+        <p>Eres muy bueno.</p>
         <div class="alert alert-info" role="alert">
             Este es el contenido principal de la página.
         </div>

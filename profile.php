@@ -1,6 +1,7 @@
-<?php
-/* Template Name: offres-aide */
+<?
+/* Template Name: profile */
 ?>
+
 
 <?php get_header(); ?>
 
