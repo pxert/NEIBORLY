@@ -40,13 +40,20 @@ header .nav a:hover{
   font-weight: 300;
   font-style: normal;
 }
+
+
 .principle button {
     background-color: #E4AEB4;
     color: white ;
-    font-size: 16px;
+    font-size: 16px ; 
     font-family: "ADLaM Display", system-ui;
   font-weight: 400;
   font-style: normal;
+}
+
+.principle p {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem); 
+
 }
 
 h1 {
@@ -87,6 +94,7 @@ background-color: #CADCE9;
   }
 
 .slider-container {
+  scroll-behavior: smooth;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   display: flex;
@@ -110,6 +118,14 @@ background-color: #CADCE9;
   background-color: #fff;
   padding: 1rem;
   
+}
+
+
+@media (max-width: 768px) {
+  .slider-item {
+    flex: 0 0 80%; /* Chaque item prend 80% de la largeur du container */
+    max-width: 80%;
+  }
 }
 
 .tmg p {
@@ -247,4 +263,17 @@ font-style: normal;
   font-family: "ADLaM Display", system-ui;
 font-weight: 400;
 font-style: normal;
+}
+
+/* For smaller screens (mobile/tablet), remove 100vh */
+@media (max-width: 768px) {
+  .right-bar {
+    height: 50px; /* Allow the height to adjust based on content */
+  }
+}
+
+@media (max-width: 576px) {
+  .right-bar {
+    height: 50px; /* Adjust height for very small screens */
+  }
 }
