@@ -1,64 +1,143 @@
-<?
+<?php
 /* Template Name: second-main */
 ?>
 
 <?php get_header(); ?>
 
-<!-- Formulario de búsqueda específico para "Offres d'aide" -->
-<div class="container mt-4">
-    <?php echo get_search_form(); ?>
-</div>
+<main class="container py-4">
+    <h1 class="text-center mb-4">Donnez une Nouvelle Vie à Vos Objets ?</h1>
 
-<main class="d-flex flex-nowrap">
+    <!-- Botón para mostrar el formulario en un pop-up -->
+    <div class="text-center mb-4">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+            Faire une publication
+        </button>
+    </div>
 
-    <!-- Sidebar -->
-    <div class="sidebar bg-dark text-white p-3">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <svg class="bi pe-none me-2" width="40" height="32">
-                <use xlink:href="#bootstrap" />
-            </svg>
-            <span class="fs-4">Sidebar</span>
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-            <!-- Menú dinámico configurado en "Side Menu" -->
-            <?php
-            wp_nav_menu([
-                'theme_location' => 'side_menu', // Nombre registrado en functions.php
-                'container' => false,
-                'menu_class' => 'nav flex-column',
-                'fallback_cb' => false, // Evitar mostrar un menú vacío si no está configurado
-                'items_wrap' => '%3$s', // Elimina el <ul> duplicado
-            ]);
-            ?>
-        </ul>
-        <hr>
-        <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>Usuario</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">Nuevo proyecto...</a></li>
-                <li><a class="dropdown-item" href="#">Configuraciones</a></li>
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-            </ul>
+    <!-- Modal de Bootstrap para el formulario -->
+    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formModalLabel">Ajouter une annonce</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Formulario -->
+                    <form id="postForm" enctype="multipart/form-data">
+                        <input type="hidden" name="post_type" value="second_main"> <!-- Tipo de publicación -->
+                        <div class="mb-3">
+                            <label for="nom" class="form-label">Titre</label>
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Titre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="demande" class="form-label">Description</label>
+                            <textarea class="form-control" id="demande" name="demande" rows="3" placeholder="Description" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Publier</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Contenido Principal -->
-    <div class="main-content p-4">
-        <h1>Second main</h1>
-        <p>Eres muy bueno.</p>
-        <div class="alert alert-info" role="alert">
-            Este es el contenido principal de la página.
-        </div>
-    </div>
+    <!-- Sección para mostrar las publicaciones en cuadrícula -->
+    <div class="row gx-3 gy-4">
+        <?php
+        $args = [
+            'post_type'      => 'second_main',
+            'posts_per_page' => 12,
+            'order'          => 'DESC'
+        ];
+        $query = new WP_Query($args);
 
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+                ?>
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <!-- Imagen ajustada y clicable para mostrar en modal -->
+                        <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php the_post_thumbnail_url('medium'); ?>" 
+                                 class="card-img-top img-thumbnail-custom" 
+                                 alt="<?php the_title(); ?>"
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#imageModal<?php echo get_the_ID(); ?>">
+                        <?php else: ?>
+                            <img src="https://via.placeholder.com/300x200" class="card-img-top img-thumbnail-custom" alt="Placeholder">
+                        <?php endif; ?>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php the_title(); ?></h5>
+                            <p class="card-text"><?php the_excerpt(); ?></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal para mostrar la imagen completa -->
+                <div class="modal fade" id="imageModal<?php echo get_the_ID(); ?>" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><?php the_title(); ?></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="<?php the_post_thumbnail_url('full'); ?>" class="img-fluid" alt="<?php the_title(); ?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            wp_reset_postdata();
+        } else {
+            echo '<div class="col-12 text-center alert alert-warning">Aucune annonce trouvée.</div>';
+        }
+        ?>
+    </div>
 </main>
+
+<!-- JavaScript para manejar el formulario con AJAX -->
+<script>
+    document.getElementById("postForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        formData.append("action", "insert_post_to_db");
+
+        fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert(data.message);
+                location.reload();
+            } else {
+                alert("Erreur : " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Erreur:", error);
+            alert("Une erreur s'est produite : " + error.message);
+        });
+    });
+</script>
+
+<style>
+    /* Ajustar las imágenes al tamaño de la cuadrícula */
+    .img-thumbnail-custom {
+        object-fit: cover;
+        height: 200px;
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+</style>
 
 <?php get_footer(); ?>
