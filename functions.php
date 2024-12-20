@@ -4,11 +4,35 @@ add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 add_theme_support('menus');
 
-// Registrar menú en el header
-register_nav_menu('header', 'En tête du menu');
+// Registrar menús 
+function register_custom_menus() {
+    register_nav_menus([
+        'header'      => __('En tête du menu', 'neiborly'),
+        'side_menu'   => __('Side Menu', 'neiborly'),
+        'footer_menu' => __('Footer Menu', 'neiborly'),
+    ]);
+}
+add_action('init', 'register_custom_menus');
 
-// Registrar una ubicación para el menú lateral
-register_nav_menu('side_menu', 'Side Menu');
+// walker raro para el footer
+class WP_Custom_Walker extends Walker_Nav_Menu {
+    private $filter;
+
+    public function __construct($filter) {
+        $this->filter = $filter;
+    }
+
+    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        // Filtrar por clases o IDs
+        if ($this->filter === 'ressources' && in_array('ressources', $item->classes)) {
+            $output .= '<li class="nav-item"><a class="nav-link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a></li>';
+        }
+
+        if ($this->filter === 'contact' && in_array('contact', $item->classes)) {
+            $output .= '<li class="nav-item"><a class="nav-link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a></li>';
+        }
+    }
+}
 
 // Función para reemplazar el texto "Profile" por un ícono SVG en el menú
 function replace_profile_menu_with_svg($item_output, $item, $depth, $args) {
@@ -30,6 +54,8 @@ function styles_scripts() {
     wp_enqueue_style('app-css', get_template_directory_uri() . '/assets/css/app.css', array(), file_exists(get_template_directory() . '/assets/css/app.css') ? filemtime(get_template_directory() . '/assets/css/app.css') : '1.0');
     wp_enqueue_style('bootstrap-icons', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css');
     wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), null, true);
+   
+
     wp_enqueue_script('app-js', get_template_directory_uri() . '/assets/js/app.js', array('bootstrap-bundle'), file_exists(get_template_directory() . '/assets/js/app.js') ? filemtime(get_template_directory() . '/assets/js/app.js') : '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'styles_scripts');
@@ -81,7 +107,7 @@ if (tf_check_user_role($roles)) {
 
 
 function restrict_pages_to_logged_in_users() {
-    if (!is_user_logged_in() && (is_page(['demandes-daide', 'aide', 'second-main', 'profile']))) {
+    if (!is_user_logged_in() && (is_page(['demandes-daide', 'aide', 'second-main-page', 'profile']))) {
         wp_redirect(home_url('/pana')); // Cambia '/acceso-restringido' por el slug de tu página personalizada.
         exit;
     }
@@ -90,7 +116,20 @@ add_action('template_redirect', 'restrict_pages_to_logged_in_users');
 
 
 
-
+function create_post_type() {	 // function dans la quel j'ajouterais tous mes type de contenu
+	register_post_type('services'/* le nom de mon type de contenu */, [ // tableau avec mes options 
+		'labels' => [ // ça sera le nom afficher dans mon menu word press avec la traduction
+			'name' => __('Services'), // __() permet a wordpress que c'est contenu de traduction
+			'singular_name' => __('Services')
+		],
+    'supports' => ['title', 'editor', 'thumbnail'], // on precise que notre post_type support title(un titre), editor(l'éditeur de contenu) et thumbnail(une photo a la une)
+		'public' => true, // c'est un post_type publique
+		'has_archive' => false, // en cas de suppression on peut retrouver notre post disparu
+  	'rewrite' => ['slug' => 'services'], // j'applique une réécriture d'url "services" au lieu de "slug"
+		'menu_icon' => 'dashicons-clipboard' // je lui précise une icon dans la bar d'outil de l'admin wordpress
+	]);
+}
+add_action('init', 'create_post_type');
 
 
 // Registrar los Custom Post Types 'demandes_aides', 'offres_aides' y 'second_main'
@@ -202,7 +241,6 @@ add_action('wp_ajax_nopriv_insert_post_to_db', 'handle_post_submission_to_wp_pos
 
 
 
-
 // Manejar la actualización del perfil, incluida la subida de imágenes
 function update_user_profile() {
     // Verificar si es una petición válida
@@ -215,8 +253,16 @@ function update_user_profile() {
 
     // Actualizar el nombre completo
     if (isset($_POST['first_name'])) {
-        update_user_meta($current_user_id, 'first_name', sanitize_text_field($_POST['first_name']));
+        $first_name = sanitize_text_field($_POST['first_name']);
+        update_user_meta($current_user_id, 'first_name', $first_name);
+    
+        // Actualizar el nombre visible (display_name)
+        wp_update_user([
+            'ID'           => $current_user_id,
+            'display_name' => $first_name
+        ]);
     }
+    
 
     // Actualizar el email del usuario
     if (isset($_POST['email'])) {

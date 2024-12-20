@@ -69,7 +69,7 @@
             <h2 class="mb-4">Dernières offres</h2>
             <?php
             $args = [
-                'post_type'      => 'offres_aides', // Filtra solo 'offres_aides'
+                'post_type'      => 'offres_aides', // Tipo de publicación
                 'posts_per_page' => 10,
                 'order'          => 'DESC'
             ];
@@ -78,12 +78,24 @@
             if ($query->have_posts()) {
                 while ($query->have_posts()) {
                     $query->the_post();
+                    $author_id = get_the_author_meta('ID'); // ID del autor
+                    $profile_picture = get_user_meta($author_id, 'profile_picture', true);
+                    $profile_picture_url = $profile_picture ? wp_get_attachment_url($profile_picture) : get_avatar_url($author_id, ['size' => 50]);
                     ?>
                     <div class="card mb-3">
                         <div class="card-body">
+                            <!-- Información del autor -->
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="<?php echo esc_url($profile_picture_url); ?>" alt="Photo de profil" class="rounded-circle me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                                <a href="<?php echo esc_url(home_url('/profile/?user_id=' . $author_id)); ?>" class="text-decoration-none fw-bold">
+                                    <?php echo esc_html(get_the_author_meta('display_name', $author_id)); ?>
+                                </a>
+                            </div>
+
+                            <!-- Contenido de la publicación -->
                             <h5 class="card-title"><?php the_title(); ?></h5>
                             <p class="card-text"><?php the_content(); ?></p>
-                            <small class="text-muted">Publié le : <?php echo get_the_date(); ?></small>
+                            <small class="text-muted">Publié le : <?php echo get_the_date('F j, Y'); ?></small>
                         </div>
                     </div>
                     <?php
@@ -98,8 +110,8 @@
 
 </main>
 
+<!-- Script AJAX para enviar el formulario -->
 <script>
-    // Enviar el formulario con AJAX
     document.getElementById("postForm").addEventListener("submit", function(e) {
         e.preventDefault();
 
@@ -114,7 +126,7 @@
         .then(data => {
             if (data.status === "success") {
                 alert(data.message);
-                location.reload();
+                location.reload(); // Recargar para mostrar la nueva publicación
             } else {
                 alert("Erreur : " + data.message);
             }
@@ -124,4 +136,3 @@
 </script>
 
 <?php get_footer(); ?>
-

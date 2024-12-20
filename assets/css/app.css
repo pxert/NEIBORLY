@@ -5,10 +5,126 @@
 body {
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-family: "Almarai", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: #21398F;
 }
+
+.sct3 {
+  border-radius: 30px;
+  color: #21398F;
+  background-color: #CADCE9;
+}
+
+  .section4 {
+    background-color: #E4AEB4;
+  }
+
+  .slider-container {
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 3rem;
+    padding: 1rem;
+    scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+  }
+
+  .slider-container::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en Chrome/Safari */
+  }
+
+  .slider-item {
+    min-height: 300px;
+    width: 300px;
+    flex: 0 0 calc(33.333% - 5rem); /* Cada tarjeta ocupa 1/3 del contenedor */
+    max-width: calc(33.333% - 5rem);
+    scroll-snap-align: center;
+    border-radius: 30px;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra */
+  }
+
+  @media (max-width: 768px) {
+    .slider-container {
+      gap: 1.5rem; /* Reduce el espacio entre tarjetas */
+      justify-content: center; /* Centra las tarjetas */
+    }
+
+    .slider-item {
+      flex: 0 0 80%; /* Cada tarjeta ocupa el 80% del ancho del contenedor */
+      max-width: 80%;
+    }
+  }
+
+
+
+
+
+
+
+  .principle {
+    color: #21398F;
+    background-color: #CADCE9;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    font-family: "Almarai", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    padding: 2rem 0; /* Añade espacio vertical */
+  }
+  
+  .principle button,
+  .principle a {
+    background-color: #E4AEB4;
+    color: white;
+    font-size: 16px;
+    font-family: "ADLaM Display", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none; /* Asegura que los enlaces no tengan subrayado */
+  }
+  
+  .principle button:hover,
+  .principle a:hover {
+    background-color: #cadce9;
+    color: #21398F; /* Cambia el color en hover */
+  }
+  
+  .principle p {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    margin-bottom: 1.5rem; /* Añade espacio debajo del párrafo */
+  }
+  
+  .illustration img {
+    max-height: 400px;
+    object-fit: contain;
+  }
+  
+  h1 {
+    color: #21398F;
+    font-family: "ADLaM Display", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    padding: 30px;
+    font-size: 32px;
+  }
+
+  
+  
+.tmg p {
+  color: #21398F;
+}
+
+.tmg .fw-bold {
+  color: #21398F;
+}
+
 
   .btn-aide:hover {
     background-color: white; /* Un tono más oscuro al pasar el ratón */
@@ -194,10 +310,162 @@ nav ul.navbar-nav {
 }
 
 
-.card-img-top {
-  height: 180px;
-  object-fit: cover;
+
+
+
+
+.list-unstyled li a {
+  color: #6c757d; /* Color gris */
+  text-decoration: none;
 }
-.card-title {
-  font-weight: bold;
+
+.list-unstyled li a:hover {
+  color: #495057; /* Color más oscuro en hover */
+  text-decoration: underline;
+}
+
+
+.section2 p {
+  max-height: 100px; /* Limita la altura del texto */
+  overflow: hidden; /* Oculta el contenido adicional */
+  text-overflow: ellipsis; /* Agrega "..." al final del texto si es demasiado largo */
+  line-height: 1.5; /* Ajusta el interlineado para mejorar la legibilidad */
+}
+
+.sct2 {
+  background-color: rgba(249, 220, 223, 0.25); /* Más transparencia para un diseño limpio */
+  border-radius: 30px;
+  color: #21398F;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Asegura que los elementos estén distribuidos de manera uniforme */
+  height: 100%; /* Asegura que las tarjetas sean uniformes */
+}
+
+/* Imagen dentro de la tarjeta */
+.card .icon img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px; /* Reduce el espacio inferior */
+}
+
+.sct2 h2 {
+  margin-bottom: 20px; /* Ajusta el espacio inferior del título */
+  text-align: center; /* Asegura que los títulos estén alineados al centro */
+}
+
+.card-body {
+  padding: 30px; /* Reduce el padding para optimizar el espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el contenido para que esté bien alineado */
+}
+
+.card-body p {
+  margin-bottom: 10px; /* Reduce el espacio inferior */
+  text-align: center; /* Centra el texto */
+}
+
+
+
+.side-bar {
+  background-color: #e4aeb489;
+  position: sticky; /* Sidebar fija */
+  height: 100vh; /* Altura completa */
+  top: 0;
+  left: 0;
+  width: 305px; /* Ajusta el ancho */
+  color: white;
+  border-right: 1px solid #ddd; /* Borde derecho opcional */
+  padding: 20px;
+}
+
+.side-bar h3 {
+  color: #21398F;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.side-bar .nav-link {
+  font-size: 20px;
+  font-family: "ADLaM Display", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff; /* Texto blanco */
+  background-color: transparent; /* Sin fondo */
+  border-radius: 30px; /* Bordes redondeados */
+  padding: 10px 15px; /* Espaciado interno */
+  display: flex;
+  align-items: center; /* Centra verticalmente ícono y texto */
+}
+
+.side-bar .nav-link img {
+  margin-right: 10px; /* Espaciado entre ícono y texto */
+}
+
+.side-bar .nav-link:hover {
+  color: #21398F; /* Color de hover */
+  background-color: #e4aeb4; /* Fondo claro al pasar */
+}
+
+.side-bar .nav-link.active {
+  background-color: #E4AEB4; /* Fondo para el enlace activo */
+  color: #fff; /* Texto blanco */
+}
+
+/* Estilo para pantallas pequeñas (opcional) */
+@media (max-width: 768px) {
+  .side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100%; /* Ancho completo */
+    height: auto;
+    border-right: none;
+    padding: 10px;
+  }
+
+  .side-bar h3 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .side-bar .nav-link {
+    justify-content: center;
+  }
+}
+
+
+
+
+
+.posts {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post {
+  background: #f9dcdf44;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.post h4 {
+  font-size: 20px;
+  font-family: "ADLaM Display", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #21398F;
+}
+
+.post button {
+  background-color: #E4AEB4;
+  color: white;
+  font-size: 16px;
+  font-family: "ADLaM Display", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
