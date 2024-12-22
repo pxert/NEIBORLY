@@ -32,12 +32,7 @@
 </section>
 
 
-<!-- Botón de desconexión para usuarios conectados -->
-<?php if ( is_user_logged_in() ) : ?>
-  <div class="logout-button-container text-end px-4 py-2">
-    <a href="<?php echo wp_logout_url(home_url()); ?>" class="btn btn-danger btn-sm">Déconnexion</a>
-  </div>
-<?php endif; ?>
+
 
 <!-- Sección de servicios dinámicos -->
 <section class="section2 container-fluid px-0 py-5">

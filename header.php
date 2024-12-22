@@ -20,8 +20,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <?php if (is_home() || is_front_page()) : ?>
-          <!-- Navbar principal con botones en Home -->
+        <?php 
+        // Mostrar navbar principal (home) en páginas específicas
+        if (is_home() || is_front_page() || is_page('second-main-page') || is_page('mentions-legales') || is_page('politique-de-confidentialite') || is_page('contact')) : ?>
           <?php
           wp_nav_menu([
             'theme_location' => 'header',
@@ -29,8 +30,9 @@
             'menu_class' => 'navbar-nav me-auto mb-2 mb-lg-0'
           ]);
           ?>
-        <?php else : ?>
-          <!-- Navbar con barra de búsqueda en el resto de las páginas -->
+        <?php 
+        // Mostrar barra de búsqueda en Demandes d'aide y Offres d'aide
+        elseif (is_page('demandes-daide') || is_page('aide')) : ?>
           <form class="d-flex" action="<?php echo home_url('/'); ?>" method="get">
             <input class="form-control me-2" type="search" placeholder="Search" name="s">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
@@ -39,3 +41,13 @@
       </div>
     </div>
   </nav>
+
+
+  <!-- Botón de desconexión flotante -->
+  <?php if (is_user_logged_in()) : ?>
+    <a href="<?php echo wp_logout_url(home_url()); ?>" id="logoutButton" class="btn btn-danger">
+    <span class="logout-icon">🚪</span> Déconnexion
+</a>
+
+<?php endif; ?>
+

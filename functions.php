@@ -54,7 +54,13 @@ function styles_scripts() {
     wp_enqueue_style('app-css', get_template_directory_uri() . '/assets/css/app.css', array(), file_exists(get_template_directory() . '/assets/css/app.css') ? filemtime(get_template_directory() . '/assets/css/app.css') : '1.0');
     wp_enqueue_style('bootstrap-icons', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css');
     wp_enqueue_script('bootstrap-bundle', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', array(), null, true);
-   
+
+    wp_enqueue_style(
+        'google-fonts',
+        'https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Almarai:wght@300;400;700;800&display=swap',
+        [],
+        null
+    );
 
     wp_enqueue_script('app-js', get_template_directory_uri() . '/assets/js/app.js', array('bootstrap-bundle'), file_exists(get_template_directory() . '/assets/js/app.js') ? filemtime(get_template_directory() . '/assets/js/app.js') : '1.0', true);
 }
@@ -298,3 +304,30 @@ add_action('wp_ajax_update_user_profile', 'update_user_profile');
 
 
 
+add_filter('show_admin_bar', function($show) {
+    return current_user_can('administrator') ? $show : false;
+  });
+
+
+  add_action('wp_login_failed', 'custom_login_failed_redirect');
+function custom_login_failed_redirect($username) {
+
+  $redirect_url = home_url('/seconnecter?login=failed'); 
+  wp_redirect($redirect_url);
+  exit;
+}
+
+
+
+add_filter('authenticate', 'custom_login_authenticate_redirect', 30, 3);
+function custom_login_authenticate_redirect($user, $username, $password) {
+
+  if (is_wp_error($user)) {
+      $redirect_url = home_url('/seconnecterlogin=empty'); 
+      if (isset($user->errors['empty_username']) || isset($user->errors['empty_password'])) {
+          wp_redirect($redirect_url);
+          exit;
+      }
+  }
+  return $user;
+}

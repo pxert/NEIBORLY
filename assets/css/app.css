@@ -267,19 +267,35 @@ footer p {
 .btn-outline-secondary:hover {
   opacity: 0.8;
 }
-
-.logout-button-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
+/*button log out*/
+#logoutButton {
+  position: fixed;
+  top: 120px; /* Ajusta según tu diseño */
+  right: 20px; /* Ajusta según tu diseño */
+  background-color: #FF6B6B; /* Rojo suave */
+  color: white;
+  border-radius: 50px;
+  padding: 3px 10px;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre el icono y el texto */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
-.logout-button-container .btn {
-  font-size: 14px;
-  padding: 5px 10px;
-  margin: 10px;
+#logoutButton:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
+
+.logout-icon {
+  font-size: 20px; /* Ajusta el tamaño del icono */
+}
+
+
 
 
 nav ul.navbar-nav {
@@ -370,14 +386,17 @@ nav ul.navbar-nav {
 
 .side-bar {
   background-color: #e4aeb489;
-  position: sticky; /* Sidebar fija */
-  height: 100vh; /* Altura completa */
+  position: sticky;
   top: 0;
   left: 0;
-  width: 305px; /* Ajusta el ancho */
+  width: 100%;
+  max-width: 305px;
   color: white;
-  border-right: 1px solid #ddd; /* Borde derecho opcional */
+  border-right: 1px solid #ddd;
   padding: 20px;
+  z-index: 1000;
+  height: auto; /* Cambia a auto para ajustarse al contenido */
+  min-height: 100%; /* Solo si necesitas que siempre cubra la pantalla */
 }
 
 .side-bar h3 {
@@ -390,40 +409,35 @@ nav ul.navbar-nav {
   font-size: 20px;
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
-  font-style: normal;
-  color: #fff; /* Texto blanco */
-  background-color: transparent; /* Sin fondo */
-  border-radius: 30px; /* Bordes redondeados */
-  padding: 10px 15px; /* Espaciado interno */
+  color: #fff;
+  background-color: transparent;
+  border-radius: 30px;
+  padding: 10px 15px;
   display: flex;
-  align-items: center; /* Centra verticalmente ícono y texto */
+  align-items: center;
 }
 
 .side-bar .nav-link img {
-  margin-right: 10px; /* Espaciado entre ícono y texto */
+  margin-right: 10px;
 }
-
+/*hola*/
 .side-bar .nav-link:hover {
-  color: #21398F; /* Color de hover */
-  background-color: #e4aeb4; /* Fondo claro al pasar */
+  color: #21398F;
+  background-color: #e4aeb4;
 }
 
 .side-bar .nav-link.active {
-  background-color: #E4AEB4; /* Fondo para el enlace activo */
-  color: #fff; /* Texto blanco */
+  background-color: #E4AEB4;
+  color: #fff;
 }
 
-/* Estilo para pantallas pequeñas (opcional) */
 @media (max-width: 768px) {
   .side-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1030;
-    width: 100%; /* Ancho completo */
-    height: auto;
+    width: 100%;
+    max-width: none;
     border-right: none;
     padding: 10px;
+    height: auto; /* Ajusta al contenido */
   }
 
   .side-bar h3 {
@@ -433,8 +447,13 @@ nav ul.navbar-nav {
 
   .side-bar .nav-link {
     justify-content: center;
+    padding: 5px 10px; /* Menos espacio interno en móvil */
   }
 }
+
+
+
+
 
 
 
@@ -461,11 +480,40 @@ nav ul.navbar-nav {
   color: #21398F;
 }
 
-.post button {
-  background-color: #E4AEB4;
-  color: white;
+
+
+/* Estilo inicial del botón */
+.post-btn {
+  background-color: #E4AEB4; /* Fondo inicial */
+  color: white; /* Color de texto inicial */
   font-size: 16px;
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
   font-style: normal;
+  border-radius: 50px; /* Bordes redondeados */
+  text-align: center;
+  padding: 10px 20px;
+  display: inline-block;
+  border: none; /* Sin borde inicial */
+  transition: all 0.3s ease; /* Transición suave */
+  text-decoration: none; /* Sin subrayado */
+}
+
+/* Hover del botón */
+.post-btn:hover {
+  background-color: transparent; /* El fondo desaparece */
+  color: #21398F; /* El texto se pone azul oscuro */
+  
+}
+
+
+
+
+
+body {
+  font-family: 'Almarai', sans-serif; /* Texto general */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'ADLaM Display', system-ui; /* Títulos importantes */
 }

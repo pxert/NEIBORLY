@@ -42,7 +42,7 @@ get_header();
         <?php if (!empty($user_data->first_name) || !empty($user_data->last_name)): ?>
             <p><strong>Nom complet :</strong> <?php echo esc_html(trim($user_data->first_name . ' ' . $user_data->last_name)); ?></p>
         <?php endif; ?>
-        <p><strong>Email :</strong> <?php echo esc_html($user_data->user_email); ?></p>
+        <p><strong>Email :</strong> <a href="mailto:<?php echo esc_attr($user_data->user_email); ?>"><?php echo esc_html($user_data->user_email); ?></a></p>
     </div>
 
     <!-- Formulario de actualización solo para el dueño del perfil -->
