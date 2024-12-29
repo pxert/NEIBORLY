@@ -37,7 +37,7 @@
 <!-- Sección de servicios dinámicos -->
 <section class="section2 container-fluid px-0 py-5">
   <h1 class="text-center mb-5">Ce que notre site vous propose</h1>
-  <div class="row mx-3">
+  <div class="row gx-3 gy-4">
     <?php
       $services = new WP_Query([
         'post_type' => 'services',
@@ -51,9 +51,9 @@
         while ($services->have_posts()): 
           $services->the_post(); 
     ?>
-      <div class="col-12 col-md-4 mb-4 mb-md-0">
-        <div class="card sct2 bg-opacity-30 h-100 mb-0 border-0">
-          <div class="card-body">
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card sct2 border-0">
+          <div class="card-body d-flex flex-column">
             <div class="icon mb-4 text-center">
               <?php if (has_post_thumbnail()): ?>
                 <img 
@@ -68,8 +68,10 @@
               <?php endif; ?>
             </div>
 
-            <h2 class="px-4 fs-4 fw-bold text-center"><?php the_title(); ?></h2>
-            <p class="px-4 text-muted mb-0"><?php echo get_the_content(); ?></p>
+            <h2 class="fs-5 fw-bold text-center"><?php the_title(); ?></h2>
+            <p class="text-muted mb-0 text-justify">
+  <?php echo apply_filters('the_content', get_the_content()); ?>
+</p>
           </div>
         </div>
       </div>
@@ -79,6 +81,7 @@
     <?php endif; ?>
   </div>
 </section>
+
 
 
 
@@ -96,8 +99,7 @@
           <div class="card sct3 bg-opacity-30 h-100 mb-0 border-0">
               <div class="card-body p-3">
 
-  
-                  <h2 class="px-4 fw-bold">Pourquoi rejoindre NEIBORLY ?</h2>
+              <h2 class="px-4 fw-bold">Pourquoi rejoindre NEIBORLY ?</h2>
                       <ul>
                           <li>Une communauté bienveillante et active.</li>
                           <li>Facilité d’échange entre voisins.</li>
@@ -128,7 +130,7 @@
       </div>
 
 
-</div>
+    </div>
 
 
     </div>

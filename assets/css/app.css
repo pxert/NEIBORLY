@@ -11,124 +11,290 @@ body {
   color: #21398F;
 }
 
+
+  
 .sct3 {
-  border-radius: 30px;
-  color: #21398F;
   background-color: #CADCE9;
+  border-radius: 30px;
 }
 
-  .section4 {
-    background-color: #E4AEB4;
+
+
+
+/* Diseño flexible para .sct2 */
+.sct2 {
+  background-color: rgba(249, 220, 223, 0.25); /* Fondo limpio y transparente */
+  border-radius: 15px; /* Esquinas redondeadas */
+  color: #21398F;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea elementos al inicio */
+  align-items: center; /* Centra el contenido horizontalmente */
+  height: auto; /* Permite altura dinámica */
+  padding: 1.25rem; /* Espaciado interno reducido */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  margin: 0.75rem 0.5rem; /* Espacio ajustado entre tarjetas */
+  text-align: center; /* Centra todo el contenido dentro de la tarjeta */
+  min-height: 420px; /* Altura mínima más compacta */
+}
+
+/* Contenedor de tarjetas para uniformidad */
+.row.gx-3.gy-4 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Espaciado uniforme entre las tarjetas */
+  align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
+  margin: 0 auto; /* Centra el contenedor */
+  max-width: 1200px; /* Ancho máximo del contenedor */
+}
+
+/* Texto dentro de las tarjetas */
+.sct2 p {
+  margin: 10px auto 0; /* Reduce la distancia con el título */
+  text-align: justify; /* Justifica el texto */
+  font-size: 1rem;
+  line-height: 1.5; /* Mejora la legibilidad */
+  white-space: normal; /* Permite múltiples líneas */
+  word-wrap: break-word; /* Ajusta palabras largas */
+  overflow-wrap: break-word; /* Compatibilidad adicional */
+}
+
+/* Imagen dentro de la tarjeta */
+.card .icon img {
+  max-width: 90%; /* Reduce ligeramente el tamaño de la imagen */
+  height: auto;
+  object-fit: contain; /* Mantiene la proporción de la imagen */
+  margin-bottom: 10px; /* Espaciado inferior reducido */
+  display: block; /* Asegura que las imágenes se comporten de manera consistente */
+}
+
+/* Títulos dentro de .sct2 */
+.sct2 h2 {
+  margin-bottom: 10px; /* Reduce la distancia con el texto */
+  text-align: center; /* Centra el título */
+  font-size: 1.3rem; /* Tamaño ajustado */
+  line-height: 1.4; /* Mejora la legibilidad */
+  word-wrap: break-word; /* Ajusta palabras largas */
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido */
+  justify-content: flex-start; /* Uniformidad entre elementos */
+  gap: 8px; /* Espaciado entre elementos */
+  height: 100%; /* Asegura que el contenido llene la tarjeta */
+}
+
+/* Ajustes de responsividad */
+@media (max-width: 768px) {
+  .sct2 {
+    padding: 1rem; /* Espaciado reducido */
+    margin: 0.5rem; /* Ajusta espacio entre tarjetas */
+    min-height: 380px; /* Reduce la altura mínima */
   }
 
+  .sct2 h2 {
+    font-size: 1.2rem; /* Tamaño del título reducido */
+    margin-bottom: 8px; /* Reduce la distancia con el texto */
+  }
+
+  .card-body p {
+    font-size: 0.95rem; /* Texto ligeramente más pequeño */
+    line-height: 1.4; /* Ajusta el interlineado */
+  }
+}
+
+@media (max-width: 576px) {
+  .sct2 {
+    padding: 0.75rem; /* Reduce el espaciado interno */
+    margin: 0.5rem; /* Espacio reducido entre tarjetas */
+    min-height: 350px; /* Reduce aún más la altura mínima */
+  }
+
+  .sct2 h2 {
+    font-size: 1rem; /* Tamaño del título reducido */
+    margin-bottom: 6px; /* Reduce la distancia con el texto */
+  }
+
+  .card-body p {
+    font-size: 0.9rem; /* Texto reducido para pantallas pequeñas */
+    line-height: 1.3; /* Ajusta el interlineado */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Sección 4 - Fondo */
+.section4 {
+  background-color: #E4AEB4;
+}
+
+/* Contenedor del slider */
+.slider-container {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: 3rem;
+  padding: 1rem;
+  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+}
+
+/* Oculta la barra de desplazamiento en otros navegadores */
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilo para los ítems del slider */
+.slider-item {
+  min-height: 300px;
+  width: 300px;
+  flex: 0 0 calc(33.333% - 5rem);
+  max-width: calc(33.333% - 5rem);
+  scroll-snap-align: center;
+  border-radius: 30px;
+  background-color: #fff;
+  padding: 1.5rem; /* Espaciado interno ajustado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra */
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinea los elementos al inicio horizontalmente */
+  text-align: left; /* Alinea el contenido al inicio */
+}
+
+
+/* Ajuste para el ícono de las comillas */
+.slider-item .card-body .d-flex {
+  justify-content: flex-start; /* Alinea el ícono de las comillas a la izquierda */
+  text-align: left; /* Alinea el texto del ícono a la izquierda */
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  margin-bottom: 15px;
+}
+
+/* Texto del testimonio */
+.slider-item p {
+  font-size: 1rem;
+  line-height: 1.6; /* Mejora la legibilidad */
+  margin-bottom: 1rem;
+  color: #21398F;
+  text-align: justify; /* Justifica el texto del testimonio */
+}
+
+/* Autor del testimonio */
+.slider-item .fw-bold {
+  font-size: 0.9rem;
+  color: #21398F;
+  text-align: center; /* Alinea el nombre del autor al centro */
+  width: 100%;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
   .slider-container {
-    scroll-behavior: smooth;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    display: flex;
-    gap: 3rem;
-    padding: 1rem;
-    scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
-  }
-
-  .slider-container::-webkit-scrollbar {
-    display: none; /* Oculta la barra de desplazamiento en Chrome/Safari */
+    gap: 1.5rem;
+    justify-content: center;
   }
 
   .slider-item {
-    min-height: 300px;
-    width: 300px;
-    flex: 0 0 calc(33.333% - 5rem); /* Cada tarjeta ocupa 1/3 del contenedor */
-    max-width: calc(33.333% - 5rem);
-    scroll-snap-align: center;
-    border-radius: 30px;
-    background-color: #fff;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra */
+    flex: 0 0 80%;
+    max-width: 80%;
   }
-
-  @media (max-width: 768px) {
-    .slider-container {
-      gap: 1.5rem; /* Reduce el espacio entre tarjetas */
-      justify-content: center; /* Centra las tarjetas */
-    }
-
-    .slider-item {
-      flex: 0 0 80%; /* Cada tarjeta ocupa el 80% del ancho del contenedor */
-      max-width: 80%;
-    }
-  }
-
-
-
-
-
-
-
-  .principle {
-    color: #21398F;
-    background-color: #CADCE9;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    font-family: "Almarai", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    padding: 2rem 0; /* Añade espacio vertical */
-  }
-  
-  .principle button,
-  .principle a {
-    background-color: #E4AEB4;
-    color: white;
-    font-size: 16px;
-    font-family: "ADLaM Display", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    border: none;
-    padding: 0.5rem 1.5rem;
-    text-decoration: none; /* Asegura que los enlaces no tengan subrayado */
-  }
-  
-  .principle button:hover,
-  .principle a:hover {
-    background-color: #cadce9;
-    color: #21398F; /* Cambia el color en hover */
-  }
-  
-  .principle p {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    margin-bottom: 1.5rem; /* Añade espacio debajo del párrafo */
-  }
-  
-  .illustration img {
-    max-height: 400px;
-    object-fit: contain;
-  }
-  
-  h1 {
-    color: #21398F;
-    font-family: "ADLaM Display", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    padding: 30px;
-    font-size: 32px;
-  }
-
-  
-  
-.tmg p {
-  color: #21398F;
 }
+
+@media (max-width: 576px) {
+  .slider-item {
+    flex: 0 0 90%;
+    max-width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
+
+.principle {
+  color: #21398F;
+  background-color: #CADCE9;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  font-family: "Almarai", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  padding: 2rem 0; /* Añade espacio vertical */
+}
+
+
+.principle a {
+  background-color: #E4AEB4;
+  color: white;
+  font-size: 16px;
+  font-family: "ADLaM Display", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none; /* Asegura que los enlaces no tengan subrayado */
+}
+
+
+.principle a:hover {
+  background-color: #cadce9;
+  color: #21398F; /* Cambia el color en hover */
+}
+
+.principle p {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  margin-bottom: 1.5rem; /* Añade espacio debajo del párrafo */
+}
+
+
+.illustration img {
+  max-height: 400px;
+  object-fit: contain;
+}
+
+h1 {
+  color: #21398F;
+  font-family: "ADLaM Display", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  padding: 30px;
+  font-size: 32px;
+}
+
+  
+
+
+
+
+
+  
 
 .tmg .fw-bold {
-  color: #21398F;
+  color: #21398F; /* Unifica el color */
 }
 
+.btn-aide:hover {
+  background-color: white; /* Un tono más oscuro al pasar el ratón */
+  transition: background-color 0.3s ease; /* Añade transición para un cambio suave */
+}
 
-  .btn-aide:hover {
-    background-color: white; /* Un tono más oscuro al pasar el ratón */
-  }
 
 
 /* Footer */
@@ -155,6 +321,7 @@ footer a {
   color: #6c757d; /* Color gris predeterminado */
   text-decoration: none;
   font-size: 0.9rem;
+  transition: color 0.3s ease; /* Transición para un cambio de color suave */
 }
 
 footer a:hover {
@@ -163,7 +330,7 @@ footer a:hover {
 
 footer p {
   margin: 0; /* Elimina márgenes predeterminados */
-  font-size: 0.85rem; /* Texto ligeramente más pequeño */
+  font-size: 0.9rem; /* Tamaño más accesible */
   color: #b0b0b0;
 }
 
@@ -177,27 +344,29 @@ footer p {
   margin-bottom: 10px; /* Espaciado entre elementos */
 }
 
+
 /* Redes Sociales */
 .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px; /* Tamaño del contenedor del ícono */
-  height: 40px;
+  width: 2.5rem; /* Tamaño relativo para mejor escalabilidad */
+  height: 2.5rem;
   background-color: white; /* Fondo blanco */
   border-radius: 50%; /* Hace los íconos circulares */
-  margin-right: 10px; /* Espaciado entre íconos */
+  margin-right: 0.625rem; /* Espaciado entre íconos */
 }
 
 .social-icon svg {
-  width: 24px; /* Ajusta tamaño de íconos */
-  height: 24px;
-  color: #E4AEB4; /* Gris por defecto */
-  transition: color 0.3s; /* Efecto suave en hover */
+  width: 1.5rem; /* Ajusta tamaño de íconos */
+  height: 1.5rem;
+  color: #E4AEB4; /* Color inicial */
+  transition: color 0.3s ease, transform 0.3s ease; /* Añade una transición suave */
 }
 
 .social-icon svg:hover {
-  color: #007bff; /* Cambia a azul en hover */
+  color: #21398F; /* Cambia a un azul más oscuro en hover */
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño en hover */
 }
 
 /* Responsividad */
@@ -205,84 +374,166 @@ footer p {
   footer {
     flex-direction: column; /* Cambia diseño a columnas apiladas */
     text-align: center;
+    gap: 1rem; /* Añade espacio uniforme entre secciones */
   }
 
   .footer-list {
-    margin-bottom: 20px; /* Añade espacio entre secciones */
+    margin-bottom: 1.25rem; /* Añade espacio entre secciones */
   }
 
   .social-icon {
-    margin: 5px; /* Ajusta márgenes para evitar amontonamiento */
+    margin: 0.3125rem; /* Ajusta márgenes para evitar amontonamiento */
   }
 }
 
 
+/* Estilos generales para los enlaces del menú */
 #menu-en-tete-du-menu li a {
   color: white;
-  transition: color 300ms ease-in-out;
+  font-family: "ADLaM Display", system-ui; /* Cambia la tipografía */
+  text-decoration: none; /* Elimina la línea debajo de los enlaces */
+  transition: color 0.3s ease-in-out; /* Suaviza la transición del color */
 }
 
 #menu-en-tete-du-menu li a:hover {
-  color: #21398F;
+  color: #21398F; /* Cambia a azul oscuro */
+  text-decoration: none; /* Asegura que no haya línea debajo al hacer hover */
 }
 
+
+/* Asegura que los elementos del menú estén en una línea y utiliza flexbox */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuye los elementos a los extremos */
+  width: 100%;
+  gap: 1rem; /* Añade espacio uniforme entre los elementos */
+}
+
+/* Mueve únicamente el ícono de perfil al extremo derecho (ajustado) */
+.navbar-nav .profile-icon-header {
+  margin-left: auto; /* Controla la separación con los demás elementos */
+  margin-right: 6rem; /* Ajusta este valor para mover el ícono hacia la izquierda */
+  display: flex;
+  align-items: center; /* Centra el ícono verticalmente */
+}
+
+/* Estilos para el ícono dentro del enlace de perfil */
+.profile-icon-header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-icon-header svg {
+  width: 24px;
+  height: 24px;
+; /* Color inicial del ícono */
+  transition: fill 0.3s ease; /* Suaviza el cambio de color */
+}
+
+
+
+/* Navbar personalizada */
 .custom-navbar {
   background-color: #E4AEB4;
+  padding: 0.75rem 1rem; /* Espaciado interno uniforme */
 }
 
-/* Estilo del navbar principal */
-.navbar {
- 
-  padding: 10px 20px;
-}
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-wrap: wrap; /* Permite que los elementos se ajusten */
+    justify-content: center; /* Centra los elementos */
+    gap: 0.5rem; /* Reduce el espacio entre elementos en pantallas pequeñas */
+  }
 
-/* Barra de búsqueda personalizada */
-.navbar .form-control {
-  width: 100%;
-  max-width: 400px;
-}
-
-.navbar .btn {
-  margin-left: 10px;
-}
-
-
-.bg-pink {
-  background-color: #CADCE9; /* Color de fondo rosado */
+  .profile-icon-header {
+    margin-left: 0; /* Elimina el margen automático en pantallas pequeñas */
+    justify-content: flex-end; /* Alinea el ícono al final */
+    width: 100%; /* Ocupa toda la fila */
+  }
 }
 
 
+
+
+
+
+
+
+
+
+
+/** botones de la pagina de restriccion**/
+/* Botones primarios */
 .btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #E4AEB4; /* Rosado del tema */
+  border-color: #E4AEB4;
   color: white;
+  font-family: "ADLaM Display", system-ui; /* Tipografía consistente */
+  font-weight: 400;
+  padding: 0.5rem 1.5rem; /* Ajusta el padding para mayor consistencia */
+  border-radius: 50px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-outline-secondary {
-  color: #6c757d;
-  border-color: #6c757d;
+.btn-primary:hover {
+  background-color: #cadce9; /* Azul claro en hover */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  color: #21398F; /* Texto azul oscuro */
 }
 
-.btn-primary:hover,
-.btn-outline-secondary:hover {
-  opacity: 0.8;
+/* Botones secundarios */
+.btn-secondary {
+  background-color: #CADCE9; /* Azul claro (ligeramente diferente al primario) */
+  border-color: #CADCE9;
+  color: #21398F; /* Azul oscuro para contraste */
+  font-family: "ADLaM Display", system-ui;
+  font-weight: 400;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
-/*button log out*/
+
+.btn-secondary:hover {
+  background-color: #E4AEB4; /* Rosado en hover */
+  color: white; /* Texto blanco */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Botón Logout */
 #logoutButton {
   position: fixed;
-  top: 120px; /* Ajusta según tu diseño */
-  right: 20px; /* Ajusta según tu diseño */
+  top: 110px; /* Ajusta según tu diseño */
+  right: 20px;
   background-color: #FF6B6B; /* Rojo suave */
   color: white;
   border-radius: 50px;
-  padding: 3px 10px;
-  font-size: 16px;
+  padding: 0.5rem 1rem; /* Usar rem para escalabilidad */
+  font-size: 1rem; /* Escalable */
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 10px; /* Espacio entre el icono y el texto */
+  gap: 0.5rem; /* Espacio entre ícono y texto */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 1050; /* Asegura que esté por encima de otros elementos */
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
@@ -292,37 +543,55 @@ footer p {
 }
 
 .logout-icon {
-  font-size: 20px; /* Ajusta el tamaño del icono */
+  font-size: 1.25rem; /* Tamaño escalable del ícono */
 }
 
 
 
 
-nav ul.navbar-nav {
+
+
+
+
+
+
+
+
+
+
+
+/* Barra de Búsqueda */
+.navbar .search-form {
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  li:last-child {
-    margin-left: auto;
-  }
-}
-
-/* Personalización de la barra de búsqueda */
-.search-form {
-  max-width: 400px; /* Ajusta el ancho máximo del formulario */
-  margin: auto; /* Centra el formulario */
-}
-
-.search-form .form-control {
-  border-radius: 0.25rem; /* Bordes redondeados */
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  max-width: 400px; /* Asegura que no se expanda demasiado */
+  background-color: white;
+  border-radius: 1.25rem;
   padding: 0.5rem;
-  border: 1px solid #ddd; /* Borde gris claro */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Suaviza el efecto al interactuar */
 }
 
-.search-form .btn {
-  margin-left: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+.navbar .search-form input {
+  border: none;
+  outline: none;
+  flex: 1; /* Toma el espacio restante */
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.navbar .search-form button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navbar .search-form button:hover {
+  transform: scale(1.1);
 }
 
 
@@ -330,9 +599,18 @@ nav ul.navbar-nav {
 
 
 
+
+
+
+
+
+
+
+/* Enlaces no listados */
 .list-unstyled li a {
   color: #6c757d; /* Color gris */
   text-decoration: none;
+  transition: color 0.3s ease; /* Transición suave al cambiar de color */
 }
 
 .list-unstyled li a:hover {
@@ -341,115 +619,158 @@ nav ul.navbar-nav {
 }
 
 
-.section2 p {
-  max-height: 100px; /* Limita la altura del texto */
-  overflow: hidden; /* Oculta el contenido adicional */
-  text-overflow: ellipsis; /* Agrega "..." al final del texto si es demasiado largo */
-  line-height: 1.5; /* Ajusta el interlineado para mejorar la legibilidad */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Clase específica para aislar los cambios */
+.sidebar-container {
+  display: flex; /* Aplica flexbox solo a esta fila */
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+  flex-wrap: nowrap; /* Evita que los elementos se salgan de la fila */
 }
 
-.sct2 {
-  background-color: rgba(249, 220, 223, 0.25); /* Más transparencia para un diseño limpio */
-  border-radius: 30px;
-  color: #21398F;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Asegura que los elementos estén distribuidos de manera uniforme */
-  height: 100%; /* Asegura que las tarjetas sean uniformes */
-}
-
-/* Imagen dentro de la tarjeta */
-.card .icon img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 15px; /* Reduce el espacio inferior */
-}
-
-.sct2 h2 {
-  margin-bottom: 20px; /* Ajusta el espacio inferior del título */
-  text-align: center; /* Asegura que los títulos estén alineados al centro */
-}
-
-.card-body {
-  padding: 30px; /* Reduce el padding para optimizar el espacio */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Distribuye el contenido para que esté bien alineado */
-}
-
-.card-body p {
-  margin-bottom: 10px; /* Reduce el espacio inferior */
-  text-align: center; /* Centra el texto */
-}
-
-
-
+/* Asegura que el contenedor sidebar tenga flexbox para alinear elementos */
 .side-bar {
-  background-color: #e4aeb489;
-  position: sticky;
+  background-color: rgba(228, 174, 180, 0.54); /* Transparencia más legible */
+  position: relative; /* Relativa para evitar interferencias */
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 305px;
+  max-width: 305px; /* Ancho máximo */
   color: white;
-  border-right: 1px solid #ddd;
-  padding: 20px;
+  border-right: 1px solid #ddd; /* Línea divisoria */
+  padding: 20px 0; /* Ajusta el padding superior e inferior */
   z-index: 1000;
-  height: auto; /* Cambia a auto para ajustarse al contenido */
-  min-height: 100%; /* Solo si necesitas que siempre cubra la pantalla */
+  height: 100%; /* Extiende la barra lateral */
+  box-sizing: border-box; /* Ajusta el padding dentro del ancho */
+  display: flex; /* Añade flexbox */
+  flex-direction: column; /* Asegura que los elementos estén en una columna */
+  align-items: center; /* Centra horizontalmente */
+  justify-content: flex-start; /* Alinea los elementos al inicio */
 }
 
+/* Centra el texto del título */
 .side-bar h3 {
   color: #21398F;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  text-align: center; /* Asegura que el título esté centrado */
 }
 
+/* Ajusta los íconos y los enlaces */
 .side-bar .nav-link {
-  font-size: 20px;
+  font-size: 1.4rem; /* Ajusta el tamaño de las letras */
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
   color: #fff;
   background-color: transparent;
-  border-radius: 30px;
-  padding: 10px 15px;
+  border-radius: 20px; /* Curvatura moderna */
+  padding: 12px 20px; /* Ajusta el padding */
+  display: flex;
+  flex-direction: column; /* Coloca los íconos y texto en columna */
+  align-items: center;
+  justify-content: center; /* Centra los elementos dentro */
+  margin-bottom: 1.5rem; /* Añade espacio entre enlaces */
+  transition: background-color 0.3s, color 0.3s; /* Suaviza el hover */
+  text-align: center;
+  line-height: 1.4; /* Uniformiza la altura de línea */
+}
+
+/* Hover en los enlaces */
+.side-bar .nav-link:hover {
+  background-color: #E4AEB4; /* Fondo rosado en hover */
+  color: #21398F; /* Texto azul oscuro */
+}
+
+/* Centra específicamente los íconos */
+.side-bar .nav-link img,
+.side-bar .nav-link svg {
+  margin-bottom: 8px; /* Espaciado debajo del ícono */
+  width: 28px; /* Tamaño uniforme de los íconos */
+  height: auto;
+}
+
+/* Específicamente para el ícono de profile */
+.profile-icon-sidebar {
+  font-size: 1.6rem; /* Aumenta ligeramente el tamaño del ícono de profile */
+  margin-top: auto; /* Ajusta el espacio superior */
+  margin-bottom: 3rem; /* Ajusta el espacio inferior */
+  align-self: center; /* Centra el ícono horizontalmente */
   display: flex;
   align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease; /* Animación suave */
 }
 
-.side-bar .nav-link img {
-  margin-right: 10px;
-}
-/*hola*/
-.side-bar .nav-link:hover {
-  color: #21398F;
-  background-color: #e4aeb4;
+/* Hover para el ícono de profile */
+.profile-icon-sidebar:hover {
+  transform: scale(1.1); /* Agranda un poco el ícono en hover */
 }
 
-.side-bar .nav-link.active {
-  background-color: #E4AEB4;
-  color: #fff;
-}
-
+/* Responsividad */
 @media (max-width: 768px) {
   .side-bar {
-    width: 100%;
-    max-width: none;
-    border-right: none;
     padding: 10px;
-    height: auto; /* Ajusta al contenido */
-  }
-
-  .side-bar h3 {
-    text-align: center;
-    font-size: 1.2rem;
+    max-width: 100%; /* Se expande en pantallas pequeñas */
+    border-right: none; /* Elimina la línea divisoria */
+    height: auto; /* Ajusta la altura automáticamente */
   }
 
   .side-bar .nav-link {
-    justify-content: center;
-    padding: 5px 10px; /* Menos espacio interno en móvil */
+    font-size: 1.2rem; /* Reduce el tamaño en móviles */
+    justify-content: center; /* Centra los enlaces */
+    padding: 10px 15px; /* Ajuste menor en el padding */
+  }
+
+  .profile-icon-sidebar {
+    margin-bottom: 2rem; /* Ajusta el margen inferior en pantallas pequeñas */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -467,53 +788,196 @@ nav ul.navbar-nav {
 }
 
 .post {
-  background: #f9dcdf44;
+  background-color: rgba(249, 220, 223, 0.25); /* Fondo con transparencia */
   padding: 20px;
   border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar */
 }
 
 .post h4 {
-  font-size: 20px;
+  font-size: 1.25rem; /* Ajuste responsivo con rem */
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
-  font-style: normal;
   color: #21398F;
+  margin: 0; /* Elimina márgenes innecesarios */
 }
+
+
 
 
 
 /* Estilo inicial del botón */
 .post-btn {
-  background-color: #E4AEB4; /* Fondo inicial */
-  color: white; /* Color de texto inicial */
-  font-size: 16px;
+  background-color: #E4AEB4;
+  color: white;
+  font-size: 1rem; /* Usar rem para escalabilidad */
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
-  font-style: normal;
-  border-radius: 50px; /* Bordes redondeados */
+  border-radius: 50px;
   text-align: center;
   padding: 10px 20px;
   display: inline-block;
-  border: none; /* Sin borde inicial */
-  transition: all 0.3s ease; /* Transición suave */
-  text-decoration: none; /* Sin subrayado */
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones específicas */
+  text-decoration: none;
 }
 
 /* Hover del botón */
 .post-btn:hover {
-  background-color: transparent; /* El fondo desaparece */
-  color: #21398F; /* El texto se pone azul oscuro */
-  
+  background-color: rgba(228, 174, 180, 0.2); /* Fondo transparente */
+  color: #21398F;
 }
 
 
 
 
 
-body {
-  font-family: 'Almarai', sans-serif; /* Texto general */
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo del formulario de registro*/
+form .form-control {
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  font-family: 'ADLaM Display', sans-serif;
+  transition: border-color 0.3s ease; /* Efecto en el borde */
 }
 
-h1, h2, h3, h4, h5, h6 {
+form .form-control:focus {
+  border-color: #21398F; /* Color destacado en focus */
+  box-shadow: 0 0 5px rgba(33, 57, 143, 0.5); /* Sombra suave */
+}
+
+form .form-label {
+  font-weight: bold;
+  color: #21398F; /* Asegurar consistencia en colores */
+}
+
+form textarea.form-control {
+  border-radius: 20px;
+  resize: vertical; /* Permitir redimensionar solo en vertical */
+}
+
+form .btn {
+  padding: 10px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #E4AEB4;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+form .btn:hover {
+  background-color: #21398F;
+  color: white;
+}
+
+/* Estilo para la página de inicio de sesión */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #F9DCDF; /* Color rosado claro */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.login-container h2 {
+  color: #21398F; /* Color consistente con tu tema */
+  font-family: 'ADLaM Display', sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.login-container form input[type="text"],
+.login-container form input[type="password"],
+.login-container form input[type="submit"] {
+  border-radius: 50px;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  font-family: 'ADLaM Display', sans-serif;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 400px;
+  transition: border-color 0.3s ease;
+}
+
+.login-container form input[type="text"]:focus,
+.login-container form input[type="password"]:focus {
+  border-color: #21398F;
+  box-shadow: 0 0 5px rgba(33, 57, 143, 0.5);
+}
+
+.login-container form input[type="submit"] {
+  background-color: #E4AEB4;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-container form input[type="submit"]:hover {
+  background-color: #21398F;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h1, h3, h4, h5, h6 {
   font-family: 'ADLaM Display', system-ui; /* Títulos importantes */
 }
+
+
+/* Eliminar desbordamiento global */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+/* Ajustar los elementos al 100% del ancho */
+.container, .container-fluid {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Asegurar que no haya márgenes no deseados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}         

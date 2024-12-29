@@ -14,30 +14,22 @@ function register_custom_menus() {
 }
 add_action('init', 'register_custom_menus');
 
-// walker raro para el footer
-class WP_Custom_Walker extends Walker_Nav_Menu {
-    private $filter;
-
-    public function __construct($filter) {
-        $this->filter = $filter;
-    }
-
-    public function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
-        // Filtrar por clases o IDs
-        if ($this->filter === 'ressources' && in_array('ressources', $item->classes)) {
-            $output .= '<li class="nav-item"><a class="nav-link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a></li>';
-        }
-
-        if ($this->filter === 'contact' && in_array('contact', $item->classes)) {
-            $output .= '<li class="nav-item"><a class="nav-link" href="' . esc_url($item->url) . '">' . esc_html($item->title) . '</a></li>';
-        }
-    }
-}
 
 // Función para reemplazar el texto "Profile" por un ícono SVG en el menú
 function replace_profile_menu_with_svg($item_output, $item, $depth, $args) {
+    // Verifica si el elemento es "Profile"
     if ($item->title === 'Profile') {
-        $item_output = '<a href="' . esc_url($item->url) . '">';
+        $custom_class = '';
+
+        // Agrega clases según la ubicación del menú
+        if ($args->theme_location === 'side_menu') {
+            $custom_class = 'profile-icon-sidebar';
+        } elseif ($args->theme_location === 'header') {
+            $custom_class = 'profile-icon-header';
+        }
+
+        // Modifica el output del ítem
+        $item_output = '<a href="' . esc_url($item->url) . '" class="nav-link ' . esc_attr($custom_class) . '">';
         $item_output .= '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">';
         $item_output .= '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>';
         $item_output .= '<circle cx="12" cy="7" r="4"></circle>';
@@ -47,6 +39,9 @@ function replace_profile_menu_with_svg($item_output, $item, $depth, $args) {
     return $item_output;
 }
 add_filter('walker_nav_menu_start_el', 'replace_profile_menu_with_svg', 10, 4);
+
+
+
 
 // Función para cargar los scripts y estilos
 function styles_scripts() {
@@ -66,6 +61,13 @@ function styles_scripts() {
 }
 add_action('wp_enqueue_scripts', 'styles_scripts');
 
+
+
+
+function add_favicon() {
+    echo '<link rel="icon" href="' . get_template_directory_uri() . '/GroupLogo-307.svg" type="image/x-icon">';
+}
+add_action('wp_head', 'add_favicon');
 
 
 // Incluir tipos de post personalizados en la búsqueda
@@ -124,7 +126,7 @@ add_action('template_redirect', 'restrict_pages_to_logged_in_users');
 
 function create_post_type() {	 // function dans la quel j'ajouterais tous mes type de contenu
 	register_post_type('services'/* le nom de mon type de contenu */, [ // tableau avec mes options 
-		'labels' => [ // ça sera le nom afficher dans mon menu word press avec la traduction
+		'labels' => [ // ça sera le n   om afficher dans mon menu word press avec la traduction
 			'name' => __('Services'), // __() permet a wordpress que c'est contenu de traduction
 			'singular_name' => __('Services')
 		],
@@ -197,13 +199,24 @@ function handle_post_submission_to_wp_posts() {
 
         // Validar y sanitizar datos del formulario
         $nom     = sanitize_text_field($_POST['nom']);
-        $demande = sanitize_textarea_field($_POST['demande']);
+        $content = '';
+
+        // Procesar contenido dependiendo del formulario
+        if (isset($_POST['offre'])) {
+            $content = sanitize_textarea_field($_POST['offre']);
+        } elseif (isset($_POST['demande'])) {
+            $content = sanitize_textarea_field($_POST['demande']);
+        } else {
+            wp_send_json(['status' => 'error', 'message' => 'Aucune description fournie.']);
+            wp_die();
+        }
+
         $user_id = get_current_user_id();
 
         // Insertar post
         $post_id = wp_insert_post([
             'post_title'   => $nom,
-            'post_content' => $demande,
+            'post_content' => $content,
             'post_status'  => 'publish',
             'post_author'  => $user_id,
             'post_type'    => $post_type,
@@ -236,6 +249,8 @@ function handle_post_submission_to_wp_posts() {
         wp_die();
     }
 }
+
+
 
 // Acciones AJAX
 add_action('wp_ajax_insert_post_to_db', 'handle_post_submission_to_wp_posts');
@@ -331,3 +346,24 @@ function custom_login_authenticate_redirect($user, $username, $password) {
   }
   return $user;
 }
+
+
+
+function custom_site_search($query) {
+    // Asegúrate de que no afecta la administración y solo aplica a búsquedas.
+    if (!is_admin() && $query->is_search) {
+        $query->set('post_type', ['post', 'page', 'demandes_aides', 'offres_aides', 'second_main']);
+        $query->set('posts_per_page', 10); // Cambia el número de resultados si lo deseas.
+    }
+    return $query;
+}
+add_action('pre_get_posts', 'custom_site_search');
+
+
+function enqueue_custom_search_script() {
+    wp_enqueue_script('custom-search', get_template_directory_uri() . '/js/custom.js', ['jquery'], '1.0', true);
+    wp_localize_script('custom-search', 'ajaxObject', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+    ]);
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_search_script');

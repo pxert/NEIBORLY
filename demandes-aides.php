@@ -6,30 +6,30 @@
 
 <main class="container-fluid">
     <div class="row">
-       <!-- Sidebar -->
-       <div class="col-md-3">
-           <div class="side-bar flex-column flex-shrink-0 p-3" id="sidebar">
-               <h3 class="fw-bold fs-5">Menu Principale</h3>
-               <ul class="nav nav-pills flex-column mb-auto">
-                   <?php
-                   wp_nav_menu([
-                       'theme_location' => 'side_menu',
-                       'container' => false,
-                       'menu_class' => 'nav flex-column',
-                       'fallback_cb' => false,
-                       'items_wrap' => '%3$s',
-                       'link_after' => '',
-                   ]);
-                   ?>
-               </ul>
-           </div>
-       </div>
+        <!-- Sidebar -->
+        <div class="col-md-3">
+            <aside class="side-bar flex-column flex-shrink-0 p-3" id="sidebar">
+                <h3 class="fw-bold fs-5">Menu Principale</h3>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'side_menu',
+                        'container' => false,
+                        'menu_class' => 'nav flex-column',
+                        'fallback_cb' => false,
+                        'items_wrap' => '%3$s',
+                        'link_after' => '',
+                    ]);
+                    ?>
+                </ul>
+            </aside>
+        </div>
 
-       <!-- Contenido Principal -->
-       <div class="col-md-9">
-           <div class="main-content mx-auto" style="max-width: 800px;">
-               <h1 class="text-center mb-4">Demandes d'aide</h1>
-               <p class="text-center">Bienvenue à la page de demandes d’aide.</p>
+        <!-- Contenido Principal -->
+        <div class="col-md-9">
+            <div class="main-content mx-auto" style="max-width: 800px;">
+                <h1 class="text-center mb-4">Demandes d'aide</h1>
+                <p class="text-center">Bienvenue à la page de demandes d’aide.</p>  
 
                <!-- Botón para mostrar el formulario en un pop-up -->
                <div class="text-center mb-4">
@@ -57,7 +57,7 @@
                                        <textarea class="form-control" id="demande" name="demande" rows="4" placeholder="Expliquez votre demande" required></textarea>
                                    </div>
                                    <input type="hidden" name="post_type" value="demandes_aides">
-                                   <button type="submit" class="btn btn-success">Envoyer</button>
+                                   <button type="submit" class="btn btn-success">Publier</button>
                                </form>
                            </div>
                        </div>
@@ -87,7 +87,7 @@
                            ?>
                            <div class="post mb-3">
                                <div class="d-flex align-items-center">
-                                   <div>
+                                   <div>    
                                        <img src="<?php echo esc_url($profile_picture); ?>" alt="Photo de profil" class="rounded-pill p-3" style="width: 60px; height: 60px;">
                                    </div>
                                    <div class="fw-bold">

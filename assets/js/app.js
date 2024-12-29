@@ -40,4 +40,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  
+  const searchInput = document.querySelector('#search-input');
+const searchButton = document.querySelector('#search-button');
+
+searchButton.addEventListener('click', () => {
+    const searchTerm = searchInput.value;
+
+    fetch(ajaxObject.ajaxUrl, {
+        method: 'POST',
+        body: new URLSearchParams({
+            action: 'custom_search',
+            search_term: searchTerm,
+        }),
+        headers: {
+            'Content-type': 'application/x-www-form-urlencoded',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        const resultsContainer = document.querySelector('#results');
+        resultsContainer.innerHTML = ''; // Limpia resultados anteriores
+        for (const [key, url] of Object.entries(data)) {
+            const result = document.createElement('div');
+            result.innerHTML = `<a href="${url}">${key}</a>`;
+            resultsContainer.appendChild(result);
+        }
+    });
+});

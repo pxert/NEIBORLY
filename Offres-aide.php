@@ -8,21 +8,21 @@
     <div class="row">
        <!-- Sidebar -->
        <div class="col-md-3">
-           <div class="side-bar flex-column flex-shrink-0 p-3" id="sidebar">
-               <h3 class="fw-bold fs-5">Menu Principale</h3>
-               <ul class="nav nav-pills flex-column mb-auto">
-                   <?php
-                   wp_nav_menu([
-                       'theme_location' => 'side_menu',
-                       'container' => false,
-                       'menu_class' => 'nav flex-column',
-                       'fallback_cb' => false,
-                       'items_wrap' => '%3$s',
-                       'link_after' => '',
-                   ]);
-                   ?>
-               </ul>
-           </div>
+       <aside class="side-bar flex-column flex-shrink-0 p-3" id="sidebar">
+                <h3 class="fw-bold fs-5">Menu Principale</h3>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'side_menu',
+                        'container' => false,
+                        'menu_class' => 'nav flex-column',
+                        'fallback_cb' => false,
+                        'items_wrap' => '%3$s',
+                        'link_after' => '',
+                    ]);
+                    ?>
+                </ul>
+            </aside>
        </div>
 
        <!-- Contenido Principal -->
@@ -57,7 +57,7 @@
                                        <textarea class="form-control" id="offre" name="offre" rows="4" placeholder="Expliquez votre offre" required></textarea>
                                    </div>
                                    <input type="hidden" name="post_type" value="offres_aides">
-                                   <button type="submit" class="btn btn-success">Envoyer</button>
+                                   <button type="submit" class="btn btn-success">Publier</button>
                                </form>
                            </div>
                        </div>
@@ -88,7 +88,8 @@
                            <div class="post mb-3">
                                <div class="d-flex align-items-center">
                                    <div>
-                                       <img src="<?php echo esc_url($profile_picture); ?>" alt="Photo de profil" class="rounded-pill p-3" style="width: 60px; height: 60px;">
+                                   <img src="<?php echo esc_url($profile_picture); ?>" alt="Photo de profil de <?php echo esc_html($author_name); ?>" class="rounded-pill p-3" style="width: 60px; height: 60px;">
+
                                    </div>
                                    <div class="fw-bold">
                                        <a href="<?php echo esc_url($profile_link); ?>" class="text-decoration-none">

@@ -41,7 +41,7 @@
         'posts_per_page' => -1, // Número ilimitado de resultados
         's' => get_search_query(), // Usar la consulta de búsqueda
     ]); // Ejecutar la consulta personalizada
-var_dump($custom_query);
+
     if ($custom_query->have_posts()) : ?>
         <div class="row">
             <?php while ($custom_query->have_posts()) : $custom_query->the_post(); ?>
@@ -74,5 +74,4 @@ var_dump($custom_query);
     wp_reset_postdata();
     ?>
 </div>
-QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
 <?php get_footer(); ?>
