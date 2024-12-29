@@ -1,4 +1,4 @@
-    <?php
+<?php
 /* Template Name: Página Acceso Restringido */
 get_header();
 ?>
