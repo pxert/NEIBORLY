@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-// Redirigir si el usuario ya está conectado
+// Rediriger si l'utilisateur est déjà connecté
 if (is_user_logged_in()) {
     wp_redirect(home_url());
     exit;
@@ -27,7 +27,7 @@ get_header(); ?>
                     </div>
                 <?php endif; ?>
 
-                <!-- Formulario de inicio de sesión -->
+                <!-- Formulaire de connexion -->
                 <?php
                 wp_login_form([
                     'redirect' => home_url(),
@@ -40,7 +40,7 @@ get_header(); ?>
                 ?>
             </div>
 
-            <!-- Enlace a la página de registro -->
+            <!-- Lien vers la page d'inscription -->
             <p class="text-center mt-3">
                 Vous n'avez pas de compte ? 
                 <a href="<?php echo site_url('/registration'); ?>" class="text-decoration-none">Créer un compte</a>

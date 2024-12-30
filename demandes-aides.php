@@ -25,20 +25,20 @@
             </aside>
         </div>
 
-        <!-- Contenido Principal -->
+        <!-- Contenu principal -->
         <div class="col-md-9">
             <div class="main-content mx-auto" style="max-width: 800px;">
                 <h1 class="text-center mb-4">Demandes d'aide</h1>
                 <p class="text-center">Bienvenue à la page de demandes d’aide.</p>  
 
-               <!-- Botón para mostrar el formulario en un pop-up -->
+               <!-- Bouton pour afficher le formulaire en un pop-up -->
                <div class="text-center mb-4">
                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
                        J'ai besoin d'aide
                    </button>
                </div>
 
-               <!-- Modal de Bootstrap -->
+               <!-- Modal  Bootstrap -->
                <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
                    <div class="modal-dialog">
                        <div class="modal-content">
@@ -64,7 +64,7 @@
                    </div>
                </div>
 
-               <!-- Mostrar las publicaciones -->
+               <!-- Afficher les publications -->
                <div id="posts-container" class="posts mt-5">
                    <h2 class="text-center mb-4">Dernières demandes</h2>
                    <?php
@@ -120,7 +120,7 @@
    </div>
 </main>
 
-<!-- Botón de flecha hacia arriba -->
+<!-- Bouton de flèche vers le haut -->
 <a href="#" id="scrollTopButton" class="btn btn-primary rounded-circle" style="display:none; position:fixed; bottom:20px; right:20px; z-index:1000;">
     ↑
 </a>
@@ -149,7 +149,7 @@
         .catch(error => console.error("Erreur:", error));
     });
 
-    // Mostrar/ocultar el botón de scroll
+    // Afficher/masquer le button de scroll
     window.addEventListener("scroll", () => {
         const scrollTopButton = document.getElementById("scrollTopButton");
         if (window.scrollY > 200) {
@@ -159,7 +159,7 @@
         }
     });
 
-    // Scroll hacia arriba
+    // Scroll vers le haut
     document.getElementById("scrollTopButton").addEventListener("click", (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: "smooth" });

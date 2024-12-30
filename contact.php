@@ -15,8 +15,8 @@ get_header();
             Si vous avez des questions ou des demandes, vous pouvez utiliser une des options suivantes :
         </p>
 
-        <!-- Opciones de contacto -->
-        <div class="row g-3 justify-content-center">
+<!-- Options de contact -->
+         <div class="row g-3 justify-content-center">
             <!-- Email -->
             <div class="col-md-6 text-center">
                 <div class="p-4" style="background-color: #fff; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
@@ -25,7 +25,7 @@ get_header();
                 </div>
             </div>
 
-            <!-- Teléfono -->
+            <!-- Telephone -->
             <div class="col-md-6 text-center">
                 <div class="p-4" style="background-color: #fff; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
                     <h4 style="color: #21398F;">Téléphone</h4>
@@ -33,7 +33,7 @@ get_header();
                 </div>
             </div>
 
-            <!-- Formulario Externo -->
+            <!-- Formulaire Externe -->
 <div class="col-md-6 text-center">
     <div class="p-4" style="background-color: #fff; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
         <h4 style="color: #21398F;">Formulaire</h4>
@@ -42,7 +42,7 @@ get_header();
 </div>
 
 
-            <!-- Redes Sociales -->
+            <!-- Réseaux Sociaux -->
 <div class="col-md-6 text-center">
     <div class="p-4" style="background-color: #fff; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
         <h4 style="color: #21398F;">Réseaux sociaux</h4>

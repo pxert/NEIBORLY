@@ -1,10 +1,10 @@
 <?php
-// Habilitar soporte de miniaturas, títulos y menús en el tema
+// Activer le support des vignettes, titres et menus dans le thème
 add_theme_support('post-thumbnails');
 add_theme_support('title-tag');
 add_theme_support('menus');
 
-// Registrar menús 
+// Enregistrer des menus
 function register_custom_menus() {
     register_nav_menus([
         'header'      => __('En tête du menu', 'neiborly'),
@@ -15,20 +15,20 @@ function register_custom_menus() {
 add_action('init', 'register_custom_menus');
 
 
-// Función para reemplazar el texto "Profile" por un ícono SVG en el menú
+// Fonction pour remplacer le texte "Profile" par une icône SVG dans le menu
 function replace_profile_menu_with_svg($item_output, $item, $depth, $args) {
-    // Verifica si el elemento es "Profile"
+    // Vérifie si l'élément est "Profile"
     if ($item->title === 'Profile') {
         $custom_class = '';
 
-        // Agrega clases según la ubicación del menú
+        // Ajoute des classes selon l'emplacement du menu
         if ($args->theme_location === 'side_menu') {
             $custom_class = 'profile-icon-sidebar';
         } elseif ($args->theme_location === 'header') {
             $custom_class = 'profile-icon-header';
         }
 
-        // Modifica el output del ítem
+        // Modifie la sortie de l'élément
         $item_output = '<a href="' . esc_url($item->url) . '" class="nav-link ' . esc_attr($custom_class) . '">';
         $item_output .= '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">';
         $item_output .= '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>';
@@ -43,7 +43,7 @@ add_filter('walker_nav_menu_start_el', 'replace_profile_menu_with_svg', 10, 4);
 
 
 
-// Función para cargar los scripts y estilos
+// Fonction pour charger les scripts et les styles
 function styles_scripts() {
     wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css');
     wp_enqueue_style('app-css', get_template_directory_uri() . '/assets/css/app.css', array(), file_exists(get_template_directory() . '/assets/css/app.css') ? filemtime(get_template_directory() . '/assets/css/app.css') : '1.0');
@@ -70,7 +70,7 @@ function add_favicon() {
 add_action('wp_head', 'add_favicon');
 
 
-// Incluir tipos de post personalizados en la búsqueda
+// Inclure des types de publications personnalisés dans la recherche
 function include_custom_post_types_in_search($query) {
     if ($query->is_search() && $query->is_main_query()) {
         $query->set('post_type', ['post', 'faqs', 'services']);
@@ -78,7 +78,7 @@ function include_custom_post_types_in_search($query) {
 }
 add_action('pre_get_posts', 'include_custom_post_types_in_search');
 
-// Agregar clases personalizadas al menú
+// Ajouter des classes personnalisées au menu
 function menuheader_class($classes, $item, $args) {
     if (in_array('menu-item-has-children', $classes)) {
         $classes[] = 'dropdown';
@@ -98,7 +98,7 @@ function menuheader_link_class($attributes, $item, $args) {
 }
 add_filter('nav_menu_link_attributes', 'menuheader_link_class', 10, 3);
 
-// Función para verificar roles de usuario
+// Fonction pour vérifier les rôles de l'utilisateur
 function tf_check_user_role($roles) {
     if (!is_user_logged_in()) {
         return false;
@@ -116,7 +116,7 @@ if (tf_check_user_role($roles)) {
 
 function restrict_pages_to_logged_in_users() {
     if (!is_user_logged_in() && (is_page(['demandes-daide', 'aide', 'second-main-page', 'profile']))) {
-        wp_redirect(home_url('/pana')); // Cambia '/acceso-restringido' por el slug de tu página personalizada.
+        wp_redirect(home_url('/pana')); // page acces restrinct
         exit;
     }
 }
@@ -140,7 +140,7 @@ function create_post_type() {	 // function dans la quel j'ajouterais tous mes ty
 add_action('init', 'create_post_type');
 
 
-// Registrar los Custom Post Types 'demandes_aides', 'offres_aides' y 'second_main'
+// Enregistrer les Custom Post Types 'demandes_aides', 'offres_aides' et 'second_main'
 function register_custom_post_types() {
     $post_types = [
         'demandes_aides' => [
@@ -184,11 +184,12 @@ function register_custom_post_types() {
 }
 add_action('init', 'register_custom_post_types');
 
-// Manejar inserción de posts desde formularios con AJAX
+// Gérer l'insertion des publications à partir des formulaires avec AJAX
 function handle_post_submission_to_wp_posts() {
-    // Verificar petición AJAX y autenticación del usuario
+    // Vérifier la requête AJAX et l'authentification de l'utilisateur
     if (defined('DOING_AJAX') && DOING_AJAX && is_user_logged_in()) {
-        // Validar tipos permitidos
+        // Valider les types autorisés
+
         $allowed_types = ['demandes_aides', 'offres_aides', 'second_main'];
         $post_type     = isset($_POST['post_type']) ? sanitize_text_field($_POST['post_type']) : '';
 
@@ -197,11 +198,11 @@ function handle_post_submission_to_wp_posts() {
             wp_die();
         }
 
-        // Validar y sanitizar datos del formulario
+        // Valider et assainir les données du formulaire
         $nom     = sanitize_text_field($_POST['nom']);
         $content = '';
 
-        // Procesar contenido dependiendo del formulario
+        // Traiter le contenu en fonction du formulaire
         if (isset($_POST['offre'])) {
             $content = sanitize_textarea_field($_POST['offre']);
         } elseif (isset($_POST['demande'])) {
@@ -213,7 +214,7 @@ function handle_post_submission_to_wp_posts() {
 
         $user_id = get_current_user_id();
 
-        // Insertar post
+        // Insérer une publication
         $post_id = wp_insert_post([
             'post_title'   => $nom,
             'post_content' => $content,
@@ -222,16 +223,16 @@ function handle_post_submission_to_wp_posts() {
             'post_type'    => $post_type,
         ]);
 
-        // Subir imagen y asociar como thumbnail
+        // Téléverser une image et l'associer comme vignette
         if (!is_wp_error($post_id) && !empty($_FILES['image']['name'])) {
             require_once(ABSPATH . 'wp-admin/includes/file.php');
             require_once(ABSPATH . 'wp-admin/includes/image.php');
             require_once(ABSPATH . 'wp-admin/includes/media.php');
 
-            // Manejar la subida de la imagen
+            // Gérer le téléversement de l'image
             $attachment_id = media_handle_upload('image', $post_id);
 
-            // Verificar errores en la subida
+            // Vérifier les erreurs lors du téléversement
             if (is_wp_error($attachment_id)) {
                 wp_send_json(['status' => 'error', 'message' => 'Erreur lors du téléchargement de l\'image.']);
                 wp_die();
@@ -240,7 +241,7 @@ function handle_post_submission_to_wp_posts() {
             }
         }
 
-        // Respuesta de éxito
+        // Réponse en cas de succès
         if (!is_wp_error($post_id)) {
             wp_send_json(['status' => 'success', 'message' => 'Publication ajoutée avec succès!']);
         } else {
@@ -252,7 +253,7 @@ function handle_post_submission_to_wp_posts() {
 
 
 
-// Acciones AJAX
+// Actions AJAX
 add_action('wp_ajax_insert_post_to_db', 'handle_post_submission_to_wp_posts');
 add_action('wp_ajax_nopriv_insert_post_to_db', 'handle_post_submission_to_wp_posts');
 
@@ -262,9 +263,9 @@ add_action('wp_ajax_nopriv_insert_post_to_db', 'handle_post_submission_to_wp_pos
 
 
 
-// Manejar la actualización del perfil, incluida la subida de imágenes
+// Gérer la mise à jour du profil, y compris le téléversement d'images
 function update_user_profile() {
-    // Verificar si es una petición válida
+    // Vérifier si la requête est valide
     if (!is_user_logged_in() || !defined('DOING_AJAX') || !DOING_AJAX) {
         wp_send_json(['status' => 'error', 'message' => 'Accès refusé.']);
         wp_die();
@@ -272,12 +273,12 @@ function update_user_profile() {
 
     $current_user_id = get_current_user_id();
 
-    // Actualizar el nombre completo
+    // Mettre à jour le nom complet
     if (isset($_POST['first_name'])) {
         $first_name = sanitize_text_field($_POST['first_name']);
         update_user_meta($current_user_id, 'first_name', $first_name);
     
-        // Actualizar el nombre visible (display_name)
+        // Mettre à jour le nom visible (display_name)
         wp_update_user([
             'ID'           => $current_user_id,
             'display_name' => $first_name
@@ -285,7 +286,7 @@ function update_user_profile() {
     }
     
 
-    // Actualizar el email del usuario
+    // Mettre à jour l'email de l'utilisateur
     if (isset($_POST['email'])) {
         wp_update_user([
             'ID'         => $current_user_id,
@@ -293,13 +294,13 @@ function update_user_profile() {
         ]);
     }
 
-    // Manejar la subida de la imagen
+    // Gérer le téléversement de l'image
     if (!empty($_FILES['profile_picture'])) {
         require_once(ABSPATH . 'wp-admin/includes/file.php');
         require_once(ABSPATH . 'wp-admin/includes/image.php');
         require_once(ABSPATH . 'wp-admin/includes/media.php');
 
-        // Subir la imagen
+        // Téléverser l'image
         $attachment_id = media_handle_upload('profile_picture', 0);
 
         if (is_wp_error($attachment_id)) {
@@ -307,7 +308,7 @@ function update_user_profile() {
             wp_die();
         }
 
-        // Asociar la imagen subida al usuario
+        // Associer l'image téléversée à l'utilisateur
         update_user_meta($current_user_id, 'profile_picture', $attachment_id);
     }
 
@@ -350,10 +351,10 @@ function custom_login_authenticate_redirect($user, $username, $password) {
 
 
 function custom_site_search($query) {
-    // Asegúrate de que no afecta la administración y solo aplica a búsquedas.
+    // Assurez-vous que cela n'affecte pas l'administration et s'applique uniquement aux recherches.
     if (!is_admin() && $query->is_search) {
         $query->set('post_type', ['post', 'page', 'demandes_aides', 'offres_aides', 'second_main']);
-        $query->set('posts_per_page', 10); // Cambia el número de resultados si lo deseas.
+        $query->set('posts_per_page', 10); // Modifi le nombre de resultats si vous voulez.
     }
     return $query;
 }

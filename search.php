@@ -35,12 +35,12 @@
     <?php } ?>
     <?php
     
-    // Modificar la consulta para buscar solo en páginas
+    // Modifier la requête pour rechercher uniquement dans les pages
     $custom_query = new WP_Query([
-        'post_type' => 'page', // Solo buscará en páginas
-        'posts_per_page' => -1, // Número ilimitado de resultados
-        's' => get_search_query(), // Usar la consulta de búsqueda
-    ]); // Ejecutar la consulta personalizada
+        'post_type' => 'page', // Recherchera uniquement dans les pages
+        'posts_per_page' => -1, // Nombre illimité de résultats
+        's' => get_search_query(), // Utiliser la requête de recherche
+    ]); // Exécuter la requête personnalisée
 
     if ($custom_query->have_posts()) : ?>
         <div class="row">
@@ -64,13 +64,13 @@
             <?php endwhile; ?>
         </div>
 
-        <!-- Navegación de paginación -->
+        <!-- Navigation de pagination -->
         <div class="pagination">
             <?php echo paginate_links(); ?>
         </div>
     <?php endif;
 
-    // Resetear la consulta después de la búsqueda personalizada
+    //  Réinitialiser la requête après la recherche personnalisée
     wp_reset_postdata();
     ?>
 </div>

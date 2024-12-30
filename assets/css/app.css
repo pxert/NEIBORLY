@@ -1,7 +1,7 @@
 
 
-/* Estructura general */
-/* Configuración del body */
+/* Structure générale */
+/* Configuration du body */
 body {
   margin: 0;
   padding: 0;
@@ -20,107 +20,102 @@ body {
 
 
 
-
-/* Diseño flexible para .sct2 */
+/* Design flexible pour .sct2 */
 .sct2 {
-  background-color: rgba(249, 220, 223, 0.25); /* Fondo limpio y transparente */
-  border-radius: 15px; /* Esquinas redondeadas */
+  background-color: rgba(249, 220, 223, 0.25); /* Fond propre et transparent */
+  border-radius: 15px; /* Coins arrondis */
   color: #21398F;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Alinea elementos al inicio */
-  align-items: center; /* Centra el contenido horizontalmente */
-  height: auto; /* Permite altura dinámica */
-  padding: 1.25rem; /* Espaciado interno reducido */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-  margin: 0.75rem 0.5rem; /* Espacio ajustado entre tarjetas */
-  text-align: center; /* Centra todo el contenido dentro de la tarjeta */
-  min-height: 420px; /* Altura mínima más compacta */
+  justify-content: flex-start; /* Aligne les éléments au début */
+  align-items: center; /* Centre le contenu horizontalement */
+  height: 100%; /* S'assurer que toutes les cartes ont la même hauteur */
+  padding: 1.25rem; /* Réduction de l'espacement interne */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  text-align: center; /* Centrer tout le contenu à l'intérieur de la carte */
+  min-height: 420px; /* Hauteur minimale la plus compacte */
 }
 
-/* Contenedor de tarjetas para uniformidad */
+/* Conteneur de cartes pour l'uniformité */
 .row.gx-3.gy-4 {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Espaciado uniforme entre las tarjetas */
-  align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
-  margin: 0 auto; /* Centra el contenedor */
-  max-width: 1200px; /* Ancho máximo del contenedor */
+  justify-content: space-between; /* Espacement uniforme entre les cartes */
+  align-items: stretch; /* Garantit que toutes les cartes aient la même hauteur */
+  margin: 0 auto; /* Centre le conteneur */
+  max-width: 1200px; /* Largeur maximale du conteneur */
 }
 
-/* Texto dentro de las tarjetas */
+/* Texte à l'intérieur des cartes */
 .sct2 p {
-  margin: 10px auto 0; /* Reduce la distancia con el título */
-  text-align: justify; /* Justifica el texto */
+  margin: 5px auto 0; /* Réduit la distance avec le titre */
+  text-align: justify; /* Justifie le texte */
   font-size: 1rem;
-  line-height: 1.5; /* Mejora la legibilidad */
-  white-space: normal; /* Permite múltiples líneas */
-  word-wrap: break-word; /* Ajusta palabras largas */
-  overflow-wrap: break-word; /* Compatibilidad adicional */
+  line-height: 1.5; /* Améliore la lisibilité */
+  white-space: normal; /* Permet plusieurs lignes */
+  word-wrap: break-word; /* Ajuste les mots longs */
+  overflow-wrap: break-word; /* Compatibilité supplémentaire */
 }
 
-/* Imagen dentro de la tarjeta */
+/* Image à l'intérieur de la carte */
 .card .icon img {
-  max-width: 90%; /* Reduce ligeramente el tamaño de la imagen */
+  max-width: 90%; /* Réduit légèrement la taille de l'image */
   height: auto;
-  object-fit: contain; /* Mantiene la proporción de la imagen */
-  margin-bottom: 10px; /* Espaciado inferior reducido */
-  display: block; /* Asegura que las imágenes se comporten de manera consistente */
+  object-fit: contain; /* Maintient les proportions de l'image */
+  margin-bottom: 2px; /* Espacement inférieur réduit */
+  display: block; /* Garantit un comportement cohérent des images */
 }
 
-/* Títulos dentro de .sct2 */
+/* Titres à l'intérieur de .sct2 */
 .sct2 h2 {
-  margin-bottom: 10px; /* Reduce la distancia con el texto */
-  text-align: center; /* Centra el título */
-  font-size: 1.3rem; /* Tamaño ajustado */
-  line-height: 1.4; /* Mejora la legibilidad */
-  word-wrap: break-word; /* Ajusta palabras largas */
+  margin-bottom: 5px; /* Réduit la distance entre le titre et le texte */
+  text-align: center; /* Centre le titre */
+  font-size: 1.3rem; /* Taille ajustée */
+  line-height: 1.4; /* Améliore la lisibilité */
 }
 
-/* Cuerpo de la tarjeta */
+/* Corps de la carte */
 .card-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra el contenido */
-  justify-content: flex-start; /* Uniformidad entre elementos */
-  gap: 8px; /* Espaciado entre elementos */
-  height: 100%; /* Asegura que el contenido llene la tarjeta */
+  align-items: center; /* Centre le contenu */
+  height: 100%; /* Garantit que le contenu remplit la carte */
+  gap: 8px; /* Espacement entre les éléments */
 }
 
-/* Ajustes de responsividad */
+/* Ajustements de réactivité */
 @media (max-width: 768px) {
   .sct2 {
-    padding: 1rem; /* Espaciado reducido */
-    margin: 0.5rem; /* Ajusta espacio entre tarjetas */
-    min-height: 380px; /* Reduce la altura mínima */
+    padding: 1rem; /* Espacement réduit */
+    margin: 0.5rem; /* Ajuste l'espace entre les cartes */
+    min-height: 380px; /* Réduit la hauteur minimale */
   }
 
   .sct2 h2 {
-    font-size: 1.2rem; /* Tamaño del título reducido */
-    margin-bottom: 8px; /* Reduce la distancia con el texto */
+    font-size: 1.2rem; /* Taille du titre réduite */
+    margin-bottom: 8px; /* Réduit la distance avec le texte */
   }
-
+  
   .card-body p {
-    font-size: 0.95rem; /* Texto ligeramente más pequeño */
-    line-height: 1.4; /* Ajusta el interlineado */
+    font-size: 0.95rem; /* Texte légèrement plus petit */
+    line-height: 1.4; /* Ajuste l'interligne */
   }
+  
 }
 
 @media (max-width: 576px) {
   .sct2 {
-    padding: 0.75rem; /* Reduce el espaciado interno */
-    margin: 0.5rem; /* Espacio reducido entre tarjetas */
-    min-height: 350px; /* Reduce aún más la altura mínima */
+    padding: 0.75rem; /* Réduit l'espacement interne */
+    margin: 0.5rem; /* Espace réduit entre les cartes */
+    min-height: 350px; /* Réduit encore plus la hauteur minimale */
   }
 
   .sct2 h2 {
-    font-size: 1rem; /* Tamaño del título reducido */
-    margin-bottom: 6px; /* Reduce la distancia con el texto */
+    font-size: 1rem; /* Taille du titre réduite */
+    margin-bottom: 6px; /* Réduit la distance avec le texte */
   }
 
   .card-body p {
-    font-size: 0.9rem; /* Texto reducido para pantallas pequeñas */
-    line-height: 1.3; /* Ajusta el interlineado */
+    font-size: 0.9rem; /* Texte réduit pour les petits écrans */
+    line-height: 1.3; /* Ajuste l'interligne */
   }
 }
 
@@ -133,12 +128,14 @@ body {
 
 
 
-/* Sección 4 - Fondo */
+
+
+/* Section 4 - Fond */
 .section4 {
   background-color: #E4AEB4;
 }
 
-/* Contenedor del slider */
+/* Conteneur du slider */
 .slider-container {
   scroll-behavior: smooth;
   overflow-x: auto;
@@ -146,15 +143,15 @@ body {
   display: flex;
   gap: 3rem;
   padding: 1rem;
-  scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+  scrollbar-width: none; /* Masque la barre de défilement dans Firefox */
 }
 
-/* Oculta la barra de desplazamiento en otros navegadores */
+/* Masque la barre de défilement dans d'autres navigateurs */
 .slider-container::-webkit-scrollbar {
   display: none;
 }
 
-/* Estilo para los ítems del slider */
+/* Style pour les éléments du slider */
 .slider-item {
   min-height: 300px;
   width: 300px;
@@ -163,43 +160,42 @@ body {
   scroll-snap-align: center;
   border-radius: 30px;
   background-color: #fff;
-  padding: 1.5rem; /* Espaciado interno ajustado */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra */
-  overflow: hidden; /* Asegura que el contenido no se desborde */
+  padding: 1.5rem; /* Espacement interne ajusté */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajoute une ombre */
+  overflow: hidden; /* Assure que le contenu ne déborde pas */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start; /* Alinea los elementos al inicio horizontalmente */
-  text-align: left; /* Alinea el contenido al inicio */
+  align-items: flex-start; /* Aligne les éléments au début horizontalement */
+  text-align: left; /* Aligne le contenu au début */
 }
 
-
-/* Ajuste para el ícono de las comillas */
+/* Ajustement pour l'icône des guillemets */
 .slider-item .card-body .d-flex {
-  justify-content: flex-start; /* Alinea el ícono de las comillas a la izquierda */
-  text-align: left; /* Alinea el texto del ícono a la izquierda */
-  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  justify-content: flex-start; /* Aligne l'icône des guillemets à gauche */
+  text-align: left; /* Aligne le texte de l'icône à gauche */
+  width: 100%; /* Assure qu'il occupe toute la largeur du conteneur */
   margin-bottom: 15px;
 }
 
-/* Texto del testimonio */
+/* Texte du témoignage */
 .slider-item p {
   font-size: 1rem;
-  line-height: 1.6; /* Mejora la legibilidad */
+  line-height: 1.6; /* Améliore la lisibilité */
   margin-bottom: 1rem;
   color: #21398F;
-  text-align: justify; /* Justifica el texto del testimonio */
+  text-align: justify; /* Justifie le texte du témoignage */
 }
 
-/* Autor del testimonio */
+/* Auteur du témoignage */
 .slider-item .fw-bold {
   font-size: 0.9rem;
   color: #21398F;
-  text-align: center; /* Alinea el nombre del autor al centro */
+  text-align: center; /* Aligne le nom de l'auteur au centre */
   width: 100%;
 }
 
-/* Responsividad */
+/* Responsivite */
 @media (max-width: 768px) {
   .slider-container {
     gap: 1.5rem;
@@ -236,7 +232,7 @@ body {
   font-family: "Almarai", sans-serif;
   font-weight: 300;
   font-style: normal;
-  padding: 2rem 0; /* Añade espacio vertical */
+  padding: 2rem 0; /* Ajoute un espace vertical */
 }
 
 
@@ -249,18 +245,18 @@ body {
   font-style: normal;
   border: none;
   padding: 0.5rem 1.5rem;
-  text-decoration: none; /* Asegura que los enlaces no tengan subrayado */
+  text-decoration: none; /* Assure que les liens n'aient pas de soulignement */
 }
 
 
 .principle a:hover {
   background-color: #cadce9;
-  color: #21398F; /* Cambia el color en hover */
+  color: #21398F; /* Change la couleur au hover */
 }
 
 .principle p {
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  margin-bottom: 1.5rem; /* Añade espacio debajo del párrafo */
+  margin-bottom: 1.5rem;/* Ajoute un espace sous le paragraphe */
 }
 
 
@@ -287,138 +283,134 @@ h1 {
   
 
 .tmg .fw-bold {
-  color: #21398F; /* Unifica el color */
+  color: #21398F; /* Unifie la couleur */
 }
 
 .btn-aide:hover {
-  background-color: white; /* Un tono más oscuro al pasar el ratón */
-  transition: background-color 0.3s ease; /* Añade transición para un cambio suave */
+  background-color: white; /* Une teinte plus foncée au survol */
+  transition: background-color 0.3s ease; /* Ajoute une transition pour un changement doux */
 }
 
-
-
-/* Footer */
+/* Pied de page */
 footer {
   background-color: #222;
   color: white;
-  text-align: left; /* Alineación izquierda para columnas */
-  padding: 20px 40px; /* Espaciado interno más amplio */
+  text-align: left; /* Alignement à gauche pour les colonnes */
+  padding: 20px 40px; /* Espacement interne plus large */
   display: flex;
-  flex-wrap: wrap; /* Ajusta columnas en pantallas pequeñas */
-  justify-content: space-between; /* Espaciado uniforme entre columnas */
-  align-items: flex-start; /* Alinea contenido al inicio */
-  margin-top: auto; /* Asegura que el footer esté en la parte inferior */
+  flex-wrap: wrap; /* Ajuste les colonnes sur les petits écrans */
+  justify-content: space-between; /* Espacement uniforme entre les colonnes */
+  align-items: flex-start; /* Aligne le contenu en haut */
+  margin-top: auto; /* Assure que le pied de page est en bas */
 }
 
 footer h5 {
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 15px; /* Espaciado uniforme debajo del título */
+  margin-bottom: 15px; /* Espacement uniforme sous le titre */
   color: #f8f9fa;
 }
 
 footer a {
-  color: #6c757d; /* Color gris predeterminado */
+  color: #6c757d; /* Couleur grise par défaut */
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s ease; /* Transición para un cambio de color suave */
+  transition: color 0.3s ease; /* Transition pour un changement de couleur doux */
 }
 
 footer a:hover {
-  color: #007bff; /* Azul al pasar el ratón */
+  color: #007bff; /* Bleu au survol */
 }
 
 footer p {
-  margin: 0; /* Elimina márgenes predeterminados */
-  font-size: 0.9rem; /* Tamaño más accesible */
+  margin: 0; /* Supprime les marges par défaut */
+  font-size: 0.9rem; /* Taille plus accessible */
   color: #b0b0b0;
 }
 
 .footer-list, .footer-list ul {
-  margin: 0; /* Elimina márgenes superiores */
+  margin: 0; /* Supprime les marges supérieures */
   padding: 0;
-  list-style: none; /* Sin viñetas */
+  list-style: none; /* Sans puces */
 }
 
 .footer-list li {
-  margin-bottom: 10px; /* Espaciado entre elementos */
+  margin-bottom: 10px; /* Espacement entre les éléments */
 }
 
 
-/* Redes Sociales */
+
+/* Réseaux sociaux */
 .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem; /* Tamaño relativo para mejor escalabilidad */
+  width: 2.5rem; /* Taille relative pour une meilleure adaptabilité */
   height: 2.5rem;
-  background-color: white; /* Fondo blanco */
-  border-radius: 50%; /* Hace los íconos circulares */
-  margin-right: 0.625rem; /* Espaciado entre íconos */
+  background-color: white; /* Fond blanc */
+  border-radius: 50%; /* Rend les icônes circulaires */
+  margin-right: 0.625rem; /* Espacement entre les icônes */
 }
 
 .social-icon svg {
-  width: 1.5rem; /* Ajusta tamaño de íconos */
+  width: 1.5rem; /* Ajuste la taille des icônes */
   height: 1.5rem;
-  color: #E4AEB4; /* Color inicial */
-  transition: color 0.3s ease, transform 0.3s ease; /* Añade una transición suave */
+  color: #E4AEB4; /* Couleur initiale */
+  transition: color 0.3s ease, transform 0.3s ease; /* Ajoute une transition douce */
 }
 
 .social-icon svg:hover {
-  color: #21398F; /* Cambia a un azul más oscuro en hover */
-  transform: scale(1.1); /* Aumenta ligeramente el tamaño en hover */
+  color: #21398F; /* Change à un bleu plus foncé au survol */
+  transform: scale(1.1); /* Augmente légèrement la taille au survol */
 }
 
-/* Responsividad */
+/* Réactivité */
 @media (max-width: 768px) {
   footer {
-    flex-direction: column; /* Cambia diseño a columnas apiladas */
+    flex-direction: column; /* Passe à une disposition en colonnes empilées */
     text-align: center;
-    gap: 1rem; /* Añade espacio uniforme entre secciones */
+    gap: 1rem; /* Ajoute un espacement uniforme entre les sections */
   }
 
   .footer-list {
-    margin-bottom: 1.25rem; /* Añade espacio entre secciones */
+    margin-bottom: 1.25rem; /* Ajoute un espace entre les sections */
   }
 
   .social-icon {
-    margin: 0.3125rem; /* Ajusta márgenes para evitar amontonamiento */
+    margin: 0.3125rem; /* Ajuste les marges pour éviter l'encombrement */
   }
 }
 
-
-/* Estilos generales para los enlaces del menú */
+/* Styles généraux pour les liens du menu */
 #menu-en-tete-du-menu li a {
   color: white;
-  font-family: "ADLaM Display", system-ui; /* Cambia la tipografía */
-  text-decoration: none; /* Elimina la línea debajo de los enlaces */
-  transition: color 0.3s ease-in-out; /* Suaviza la transición del color */
+  font-family: "ADLaM Display", system-ui; /* Change la typographie */
+  text-decoration: none; /* Supprime la ligne sous les liens */
+  transition: color 0.3s ease-in-out; /* Adoucit la transition de couleur */
 }
 
 #menu-en-tete-du-menu li a:hover {
-  color: #21398F; /* Cambia a azul oscuro */
-  text-decoration: none; /* Asegura que no haya línea debajo al hacer hover */
+  color: #21398F; /* Change à un bleu foncé */
+  text-decoration: none; /* S'assure qu'il n'y a pas de ligne sous le lien au survol */
 }
 
-
-/* Asegura que los elementos del menú estén en una línea y utiliza flexbox */
+/* S'assure que les éléments du menu sont sur une ligne et utilise flexbox */
 .navbar-nav {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribuye los elementos a los extremos */
+  justify-content: space-between; /* Distribue les éléments aux extrémités */
   width: 100%;
-  gap: 1rem; /* Añade espacio uniforme entre los elementos */
+  gap: 1rem; /* Ajoute un espacement uniforme entre les éléments */
 }
 
-/* Mueve únicamente el ícono de perfil al extremo derecho (ajustado) */
+/* Déplace uniquement l'icône du profil à l'extrémité droite (ajustée) */
 .navbar-nav .profile-icon-header {
-  margin-left: auto; /* Controla la separación con los demás elementos */
-  margin-right: 6rem; /* Ajusta este valor para mover el ícono hacia la izquierda */
+  margin-left: auto; /* Contrôle la séparation avec les autres éléments */
   display: flex;
-  align-items: center; /* Centra el ícono verticalmente */
+  align-items: center; /* Centre l'icône verticalement */
 }
 
-/* Estilos para el ícono dentro del enlace de perfil */
+/* Styles pour l'icône à l'intérieur du lien de profil */
 .profile-icon-header a {
   display: flex;
   align-items: center;
@@ -428,67 +420,60 @@ footer p {
 .profile-icon-header svg {
   width: 24px;
   height: 24px;
-; /* Color inicial del ícono */
-  transition: fill 0.3s ease; /* Suaviza el cambio de color */
+  transition: fill 0.3s ease; /* Adoucit le changement de couleur */
 }
 
 
-
-/* Navbar personalizada */
+/* Navbar personnalisée */
 .custom-navbar {
   background-color: #E4AEB4;
-  padding: 0.75rem 1rem; /* Espaciado interno uniforme */
+  padding: 0.75rem 1rem; /* Espacement interne uniforme */
 }
 
-/* Responsividad para pantallas pequeñas */
+/* Réactivité pour les petits écrans */
 @media (max-width: 768px) {
   .navbar-nav {
-    flex-wrap: wrap; /* Permite que los elementos se ajusten */
-    justify-content: center; /* Centra los elementos */
-    gap: 0.5rem; /* Reduce el espacio entre elementos en pantallas pequeñas */
+    flex-direction: column; /* Place les éléments en colonne */
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
+    gap: 0.5rem; /* Réduit l'espacement entre les éléments sur les petits écrans */
+  }
+
+  #menu-en-tete-du-menu li a {
+    text-align: center; /* S'assure que les liens sont centrés sur les petits écrans */
   }
 
   .profile-icon-header {
-    margin-left: 0; /* Elimina el margen automático en pantallas pequeñas */
-    justify-content: flex-end; /* Alinea el ícono al final */
-    width: 100%; /* Ocupa toda la fila */
+    margin-left: 0; /* Maintient la marge automatique */
+    justify-content: flex-end; /* Aligne l'icône à droite */
+    width: 100%; /* Ajuste automatiquement la largeur */
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-/** botones de la pagina de restriccion**/
-/* Botones primarios */
+/** Boutons de la page de restriction **/
+/* Boutons primaires */
 .btn-primary {
-  background-color: #E4AEB4; /* Rosado del tema */
+  background-color: #E4AEB4; /* Rose du thème */
   border-color: #E4AEB4;
   color: white;
-  font-family: "ADLaM Display", system-ui; /* Tipografía consistente */
+  font-family: "ADLaM Display", system-ui; /* Typographie cohérente */
   font-weight: 400;
-  padding: 0.5rem 1.5rem; /* Ajusta el padding para mayor consistencia */
-  border-radius: 50px; /* Bordes redondeados */
+  padding: 0.5rem 1.5rem; /* Ajuste le padding pour plus de cohérence */
+  border-radius: 50px; /* Bords arrondis */
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: #cadce9; /* Azul claro en hover */
-  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-  color: #21398F; /* Texto azul oscuro */
+  background-color: #cadce9; /* Bleu clair au survol */
+  transform: scale(1.05); /* Augmente légèrement la taille */
+  color: #21398F; /* Texte bleu foncé */
 }
 
-/* Botones secundarios */
+/* Boutons secondaires */
 .btn-secondary {
-  background-color: #CADCE9; /* Azul claro (ligeramente diferente al primario) */
+  background-color: #CADCE9; /* Bleu clair (légèrement différent du primaire) */
   border-color: #CADCE9;
-  color: #21398F; /* Azul oscuro para contraste */
+  color: #21398F; /* Bleu foncé pour le contraste */
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
   padding: 0.5rem 1.5rem;
@@ -497,9 +482,9 @@ footer p {
 }
 
 .btn-secondary:hover {
-  background-color: #E4AEB4; /* Rosado en hover */
-  color: white; /* Texto blanco */
-  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+  background-color: #E4AEB4; /* Rose au survol */
+  color: white; /* Texte blanc */
+  transform: scale(1.05); /* Augmente légèrement la taille */
 }
 
 
@@ -518,22 +503,23 @@ footer p {
 
 
 
-/* Botón Logout */
+
+/* Bouton Déconnexion */
 #logoutButton {
   position: fixed;
-  top: 110px; /* Ajusta según tu diseño */
+  top: 110px; /* Ajustez selon votre design */
   right: 20px;
-  background-color: #FF6B6B; /* Rojo suave */
+  background-color: #FF6B6B; /* Rouge doux */
   color: white;
   border-radius: 50px;
-  padding: 0.5rem 1rem; /* Usar rem para escalabilidad */
-  font-size: 1rem; /* Escalable */
+  padding: 0.5rem 1rem; /* Utilisez rem pour une meilleure adaptabilité */
+  font-size: 1rem; /* Évolutif */
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Espacio entre ícono y texto */
+  gap: 0.5rem; /* Espacement entre l'icône et le texte */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 1050; /* Asegura que esté por encima de otros elementos */
+  z-index: 1050; /* Assure qu'il est au-dessus des autres éléments */
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
@@ -543,7 +529,7 @@ footer p {
 }
 
 .logout-icon {
-  font-size: 1.25rem; /* Tamaño escalable del ícono */
+  font-size: 1.25rem; /* Taille évolutive de l'icône */
 }
 
 
@@ -564,9 +550,9 @@ footer p {
 .navbar .search-form {
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Asegura la alineación entre el input y el botón */
   align-items: center;
-  width: 60%;
+  width: 60%; /* Ancho por defecto */
   max-width: 400px; /* Asegura que no se expanda demasiado */
   background-color: white;
   border-radius: 1.25rem;
@@ -578,7 +564,7 @@ footer p {
 .navbar .search-form input {
   border: none;
   outline: none;
-  flex: 1; /* Toma el espacio restante */
+  flex: 1; /* Toma todo el espacio disponible */
   padding: 0.5rem;
   font-size: 1rem;
 }
@@ -587,6 +573,12 @@ footer p {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin-left: 0.5rem; /* Espaciado entre el input y el botón */
   transition: transform 0.3s ease;
 }
 
@@ -594,28 +586,40 @@ footer p {
   transform: scale(1.1);
 }
 
+/* Responsivite */
+@media (max-width: 768px) {
+  .navbar .search-form {
+    width: 90%; /* Occupe presque toute la largeur disponible */
+    max-width: 90%;
+  }
 
+  .navbar .search-form input {
+    font-size: 0.9rem; /* Réduit légèrement la taille du texte */
+    padding: 0.4rem;
+  }
 
-
-
-
-
-
-
-
-
-
-
-/* Enlaces no listados */
-.list-unstyled li a {
-  color: #6c757d; /* Color gris */
-  text-decoration: none;
-  transition: color 0.3s ease; /* Transición suave al cambiar de color */
+  .navbar .search-form button {
+    width: 25px;
+    height: 25px;
+  }
 }
 
-.list-unstyled li a:hover {
-  color: #495057; /* Color más oscuro en hover */
-  text-decoration: underline;
+@media (max-width: 576px) {
+  .navbar .search-form {
+    flex-direction: row; /* Maintient la disposition horizontale */
+    width: 100%;
+    padding: 0.5rem; /* Espacement interne */
+  }
+
+  .navbar .search-form input {
+    flex: 1;
+    width: calc(100% - 50px); /* Assure un espace pour le bouton */
+    margin-bottom: 0;
+  }
+
+  .navbar .search-form button {
+    align-self: center; /* Aligne le bouton verticalement */
+  }
 }
 
 
@@ -653,110 +657,128 @@ footer p {
 
 
 
-/* Clase específica para aislar los cambios */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Classe spécifique pour isoler les modifications */
 .sidebar-container {
-  display: flex; /* Aplica flexbox solo a esta fila */
-  min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
-  flex-wrap: nowrap; /* Evita que los elementos se salgan de la fila */
+  display: flex; /* Applique flexbox uniquement à cette ligne */
+  min-height: 100vh; /* Assure qu'elle occupe toute la hauteur de la fenêtre */
+  flex-wrap: nowrap; /* Empêche les éléments de sortir de la ligne */
 }
 
-/* Asegura que el contenedor sidebar tenga flexbox para alinear elementos */
+/* Assure que le conteneur de la barre latérale utilise flexbox pour aligner les éléments */
 .side-bar {
-  background-color: rgba(228, 174, 180, 0.54); /* Transparencia más legible */
-  position: relative; /* Relativa para evitar interferencias */
+  background-color: rgba(228, 174, 180, 0.54); /* Transparence plus lisible */
+  position: relative; /* Position relative pour éviter les interférences */
   top: 0;
   left: 0;
   width: 100%;
-  max-width: 305px; /* Ancho máximo */
+  max-width: 305px; /* Largeur maximale */
   color: white;
-  border-right: 1px solid #ddd; /* Línea divisoria */
-  padding: 20px 0; /* Ajusta el padding superior e inferior */
+  border-right: 1px solid #ddd; /* Ligne de séparation */
+  padding: 20px 0; /* Ajuste le padding supérieur et inférieur */
   z-index: 1000;
-  height: 100%; /* Extiende la barra lateral */
-  box-sizing: border-box; /* Ajusta el padding dentro del ancho */
-  display: flex; /* Añade flexbox */
-  flex-direction: column; /* Asegura que los elementos estén en una columna */
-  align-items: center; /* Centra horizontalmente */
-  justify-content: flex-start; /* Alinea los elementos al inicio */
+  height: 100%; /* Étend la barre latérale */
+  box-sizing: border-box; /* Inclut le padding dans la largeur */
+  display: flex; /* Applique flexbox */
+  flex-direction: column; /* Aligne les éléments en colonne */
+  align-items: center; /* Centre horizontalement */
+  justify-content: flex-start; /* Aligne les éléments au début */
 }
 
-/* Centra el texto del título */
+/* Centre le texte du titre */
 .side-bar h3 {
   color: #21398F;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
-  text-align: center; /* Asegura que el título esté centrado */
+  text-align: center; /* Assure que le titre est centré */
 }
 
-/* Ajusta los íconos y los enlaces */
+/* Ajuste les icônes et les liens */
 .side-bar .nav-link {
-  font-size: 1.4rem; /* Ajusta el tamaño de las letras */
+  font-size: 1.4rem; /* Ajuste la taille du texte */
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
   color: #fff;
   background-color: transparent;
-  border-radius: 20px; /* Curvatura moderna */
-  padding: 12px 20px; /* Ajusta el padding */
+  border-radius: 20px; /* Arrondi moderne */
+  padding: 12px 20px; /* Ajuste le padding */
   display: flex;
-  flex-direction: column; /* Coloca los íconos y texto en columna */
+  flex-direction: column; /* Place les icônes et le texte en colonne */
   align-items: center;
-  justify-content: center; /* Centra los elementos dentro */
-  margin-bottom: 1.5rem; /* Añade espacio entre enlaces */
-  transition: background-color 0.3s, color 0.3s; /* Suaviza el hover */
+  justify-content: center; /* Centre les éléments à l'intérieur */
+  margin-bottom: 1.5rem; /* Ajoute un espace entre les liens */
+  transition: background-color 0.3s, color 0.3s; /* Adoucit l'effet hover */
   text-align: center;
-  line-height: 1.4; /* Uniformiza la altura de línea */
+  line-height: 1.4; /* Uniformise la hauteur de ligne */
 }
 
-/* Hover en los enlaces */
+
+/* Hover sur les liens */
 .side-bar .nav-link:hover {
-  background-color: #E4AEB4; /* Fondo rosado en hover */
-  color: #21398F; /* Texto azul oscuro */
+  background-color: #E4AEB4; /* Fond rose au survol */
+  color: #21398F; /* Texte bleu foncé */
 }
 
-/* Centra específicamente los íconos */
+/* Centre spécifiquement les icônes */
 .side-bar .nav-link img,
 .side-bar .nav-link svg {
-  margin-bottom: 8px; /* Espaciado debajo del ícono */
-  width: 28px; /* Tamaño uniforme de los íconos */
+  margin-bottom: 8px; /* Espacement sous l'icône */
+  width: 28px; /* Taille uniforme des icônes */
   height: auto;
 }
 
-/* Específicamente para el ícono de profile */
+/* Spécifiquement pour l'icône de profil */
 .profile-icon-sidebar {
-  font-size: 1.6rem; /* Aumenta ligeramente el tamaño del ícono de profile */
-  margin-top: auto; /* Ajusta el espacio superior */
-  margin-bottom: 3rem; /* Ajusta el espacio inferior */
-  align-self: center; /* Centra el ícono horizontalmente */
+  font-size: 1.6rem; /* Augmente légèrement la taille de l'icône de profil */
+  margin-top: auto; /* Ajuste l'espace supérieur */
+  margin-bottom: 3rem; /* Ajuste l'espace inférieur */
+  align-self: center; /* Centre l'icône horizontalement */
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease; /* Animación suave */
+  transition: transform 0.3s ease; /* Animation douce */
 }
 
-/* Hover para el ícono de profile */
+/* Hover pour l'icône de profil */
 .profile-icon-sidebar:hover {
-  transform: scale(1.1); /* Agranda un poco el ícono en hover */
+  transform: scale(1.1); /* Agrandit légèrement l'icône au survol */
 }
 
-/* Responsividad */
+/* Réactivité */
 @media (max-width: 768px) {
   .side-bar {
     padding: 10px;
-    max-width: 100%; /* Se expande en pantallas pequeñas */
-    border-right: none; /* Elimina la línea divisoria */
-    height: auto; /* Ajusta la altura automáticamente */
+    max-width: 100%; /* S'étend sur les petits écrans */
+    border-right: none; /* Supprime la ligne de séparation */
+    height: auto; /* Ajuste automatiquement la hauteur */
   }
 
   .side-bar .nav-link {
-    font-size: 1.2rem; /* Reduce el tamaño en móviles */
-    justify-content: center; /* Centra los enlaces */
-    padding: 10px 15px; /* Ajuste menor en el padding */
+    font-size: 1.2rem; /* Réduit la taille sur mobile */
+    justify-content: center; /* Centre les liens */
+    padding: 10px 15px; /* Ajustement mineur du padding */
   }
 
   .profile-icon-sidebar {
-    margin-bottom: 2rem; /* Ajusta el margen inferior en pantallas pequeñas */
+    margin-bottom: 2rem; /* Ajuste la marge inférieure sur les petits écrans */
   }
 }
+
 
 
 
@@ -788,29 +810,29 @@ footer p {
 }
 
 .post {
-  background-color: rgba(249, 220, 223, 0.25); /* Fondo con transparencia */
+  background-color: rgba(249, 220, 223, 0.25); /* Fond avec transparence */
   padding: 20px;
   border-radius: 30px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre pour mettre en valeur */
 }
 
 .post h4 {
-  font-size: 1.25rem; /* Ajuste responsivo con rem */
+  font-size: 1.25rem; /* Ajustement réactif avec rem */
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
   color: #21398F;
-  margin: 0; /* Elimina márgenes innecesarios */
+  margin: 0; /* Supprime les marges inutiles */
 }
 
 
 
 
 
-/* Estilo inicial del botón */
+/* Style initial du bouton */
 .post-btn {
   background-color: #E4AEB4;
   color: white;
-  font-size: 1rem; /* Usar rem para escalabilidad */
+  font-size: 1rem; /* Utilisez rem pour une meilleure adaptabilité */
   font-family: "ADLaM Display", system-ui;
   font-weight: 400;
   border-radius: 50px;
@@ -818,13 +840,13 @@ footer p {
   padding: 10px 20px;
   display: inline-block;
   border: none;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones específicas */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transitions spécifiques */
   text-decoration: none;
 }
 
-/* Hover del botón */
+/* Hover du bouton */
 .post-btn:hover {
-  background-color: rgba(228, 174, 180, 0.2); /* Fondo transparente */
+  background-color: rgba(228, 174, 180, 0.2); /* Fond transparent */
   color: #21398F;
 }
 
@@ -843,28 +865,28 @@ footer p {
 
 
 
-/* Estilo del formulario de registro*/
+/* Style du formulaire d'inscription */
 form .form-control {
   border-radius: 50px;
   border: 1px solid #ccc;
   padding: 10px 15px;
   font-family: 'ADLaM Display', sans-serif;
-  transition: border-color 0.3s ease; /* Efecto en el borde */
+  transition: border-color 0.3s ease; /* Effet sur la bordure */
 }
 
 form .form-control:focus {
-  border-color: #21398F; /* Color destacado en focus */
-  box-shadow: 0 0 5px rgba(33, 57, 143, 0.5); /* Sombra suave */
+  border-color: #21398F; /* Couleur mise en évidence au focus */
+  box-shadow: 0 0 5px rgba(33, 57, 143, 0.5); /* Ombre légère */
 }
 
 form .form-label {
   font-weight: bold;
-  color: #21398F; /* Asegurar consistencia en colores */
+  color: #21398F; /* Assure une cohérence des couleurs */
 }
 
 form textarea.form-control {
   border-radius: 20px;
-  resize: vertical; /* Permitir redimensionar solo en vertical */
+  resize: vertical; /* Permet de redimensionner uniquement verticalement */
 }
 
 form .btn {
@@ -883,23 +905,24 @@ form .btn:hover {
   color: white;
 }
 
-/* Estilo para la página de inicio de sesión */
+/* Style pour la page de connexion */
 .login-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background-color: #F9DCDF; /* Color rosado claro */
+  background-color: #F9DCDF; /* Couleur rose clair */
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
 
 .login-container h2 {
-  color: #21398F; /* Color consistente con tu tema */
+  color: #21398F; /* Couleur cohérente avec votre thème */
   font-family: 'ADLaM Display', sans-serif;
   margin-bottom: 1.5rem;
 }
+
 
 .login-container form input[type="text"],
 .login-container form input[type="password"],
@@ -941,6 +964,32 @@ form .btn:hover {
 
 
 
+/*Second main*/
+
+/* Adapter les images à la taille de la grille */
+.img-thumbnail-custom {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.post-btn {
+    background-color: #E4AEB4;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-align: center;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.post-btn:hover {
+    background-color: #21398F;
+    color: white;
+}
 
 
 
@@ -957,27 +1006,27 @@ form .btn:hover {
 
 
 h1, h3, h4, h5, h6 {
-  font-family: 'ADLaM Display', system-ui; /* Títulos importantes */
+  font-family: 'ADLaM Display', system-ui; /* Titres importants */
 }
 
-
-/* Eliminar desbordamiento global */
+/* Supprimer le débordement global */
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita el scroll horizontal */
+  overflow-x: hidden; /* Évite le défilement horizontal */
 }
 
-/* Ajustar los elementos al 100% del ancho */
+/* Ajuster les éléments à 100 % de la largeur */
 .container, .container-fluid {
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
 }
 
-/* Asegurar que no haya márgenes no deseados */
+/* Assurer l'absence de marges indésirables */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}         
+}
+      

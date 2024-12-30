@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 
 get_header();
 
-// Redirigir si el usuario ya está conectado
+// Rediriger si l'utilisateur est déjà connecté
 if (is_user_logged_in()) {
     wp_redirect(home_url());
     exit;
@@ -17,7 +17,7 @@ if (is_user_logged_in()) {
     <h2 class="text-center mb-4">Inscription</h2>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <!-- Formulario de Registro -->
+            <!--  Formulaire d'inscription -->
             <form method="post" action="" id="registerForm">
                 <div class="mb-3">
                     <label for="username" class="form-label">Nom d'utilisateur</label>
@@ -39,7 +39,7 @@ if (is_user_logged_in()) {
                 <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
             </form>
 
-            <!-- Procesar el formulario de registro -->
+            <!-- Traiter le formulaire d'inscription -->
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $username = sanitize_text_field($_POST['username']);
@@ -47,7 +47,7 @@ if (is_user_logged_in()) {
                 $password = $_POST['password'];
                 $confirm_password = $_POST['confirm_password'];
 
-                // Verificar que las contraseñas coincidan
+                // Vérifier que les mots de passe correspondent
                 if ($password !== $confirm_password) {
                     echo '<div class="alert alert-danger mt-3 text-center">Les mots de passe ne correspondent pas.</div>';
                 } else {
@@ -60,11 +60,12 @@ if (is_user_logged_in()) {
                     $user_id = wp_insert_user($userdata);
 
                     if (!is_wp_error($user_id)) {
-                        // Iniciar sesión automáticamente después del registro
+                        // Se connecter automatiquement après l'inscription
                         wp_set_current_user($user_id);
                         wp_set_auth_cookie($user_id);
 
-                        // Redirigir al usuario a la página exclusiva
+                        // Rediriger l'utilisateur vers la page exclusive
+
                         wp_redirect(home_url());
                         exit;
                     } else {
@@ -78,13 +79,13 @@ if (is_user_logged_in()) {
 </div>
 
 <script>
-    // Validación de contraseñas en el lado del cliente
+    // Validation des mots de passe côté client
     document.getElementById('registerForm').addEventListener('submit', function(e) {
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirm_password').value;
 
         if (password !== confirmPassword) {
-            e.preventDefault(); // Evita el envío del formulario
+            e.preventDefault();  // Empêche l'envoi du formulaire
             document.getElementById('passwordError').style.display = 'block';
         } else {
             document.getElementById('passwordError').style.display = 'none';

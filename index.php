@@ -2,7 +2,7 @@
 
 <section class="principle container-fluid text-center py-5">
   <div class="row align-items-center mx-0 px-5 flex-column-reverse flex-md-row">
-    <!-- Columna del texto -->
+    <!-- Colonne du texte -->
     <div class="col-md-6 px-5">
       <p>
         Ensemble, chez <span class="fw-bold fs-2"> Neiborly </span>
@@ -11,18 +11,18 @@
       </p>
       <div class="d-grid gap-2 d-md-block">
         <?php if ( is_user_logged_in() ) : ?>
-          <!-- Botones para usuarios conectados -->
+          <!-- Boutons pour les utilisateurs connectés -->
           <a href="<?php echo site_url('/aide'); ?>" class="btn fs-6 rounded-pill">Offres d'Aides</a>
           <a href="<?php echo site_url('/demandes-daide'); ?>" class="btn fs-6 rounded-pill">Demandes d'aide</a>
         <?php else : ?>
-          <!-- Botones para usuarios no conectados -->
+          <!-- Boutons pour les utilisateurs non connectés -->
           <a href="<?php echo site_url('/registration'); ?>" class="btn fs-6 rounded-pill">Créer une compte</a>
           <a href="<?php echo site_url('/seconnecter'); ?>" class="btn fs-6 rounded-pill">Se connecter</a>
         <?php endif; ?> 
       </div>
     </div>
 
-    <!-- Columna de la imagen -->
+    <!-- Colonne de l'image -->
     <div class="col-md-6 illustration p-3">
       <img src="<?php echo get_template_directory_uri() . '/assets/img/homes.png'; ?>" 
            alt="Descripción de la imagen" 
@@ -34,7 +34,7 @@
 
 
 
-<!-- Sección de servicios dinámicos -->
+<!-- Section des services dynamiques -->
 <section class="section2 container-fluid px-0 py-5">
   <h1 class="text-center mb-5">Ce que notre site vous propose</h1>
   <div class="row gx-3 gy-4">
