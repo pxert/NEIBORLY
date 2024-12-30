@@ -1,7 +1,7 @@
 <div class="container-fluid m-0 p-0">
   <footer class="row row-cols-1 row-cols-md-2 row-cols-lg-5 py-5 border-top" style="background-color: #F9DCDF;">
 
-    <!-- Columna Logo -->
+    <!-- Colonne du logo -->
     <div class="col mb-4 text-center text-md-start">
       <div class="footer-logo mb-2">
         <img src="<?php echo get_template_directory_uri() . '/logo.svg'; ?>" alt="Logo" style="max-width: 120px;">
@@ -9,7 +9,7 @@
       <p>&copy;<?php echo date('Y'); ?> NEIBORLY - Tous droits réservés.</p>
     </div>
 
-    <!-- Columna Ressources -->
+    <!-- Colonne Ressources -->
     <div class="col mb-4">
       <h5 class="text-center text-md-start">Ressources</h5>
       <ul class="list-unstyled text-center text-md-start">
@@ -26,7 +26,7 @@
       </ul>
     </div>
 
-    <!-- Columna Contactez-nous -->
+    <!-- Colonne Contactez-nous -->
     <div class="col mb-4">
       <h5 class="text-center text-md-start">Contactez-nous</h5>
       <ul class="list-unstyled text-center text-md-start">
@@ -42,7 +42,7 @@
       </ul>
     </div>
 
-    <!-- Columna Redes Sociales -->
+    <!-- Colonne des réseaux sociaux -->
     <div class="col mb-4">
       <h5 class="text-center text-md-start">Suivez-nous sur :</h5>
       <div class="d-flex justify-content-center justify-content-md-start gap-3">

@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2; // Ajusta la velocidad del desplazamiento
+        const walk = (x - startX) * 2; // Ajuste la vitesse du défilement
         slider.scrollLeft = scrollLeft - walk;
       });
     }
@@ -59,7 +59,7 @@ searchButton.addEventListener('click', () => {
     .then(response => response.json())
     .then(data => {
         const resultsContainer = document.querySelector('#results');
-        resultsContainer.innerHTML = ''; // Limpia resultados anteriores
+        resultsContainer.innerHTML = ''; // Nettoyer les résultats précédents
         for (const [key, url] of Object.entries(data)) {
             const result = document.createElement('div');
             result.innerHTML = `<a href="${url}">${key}</a>`;
@@ -67,3 +67,10 @@ searchButton.addEventListener('click', () => {
         }
     });
 });
+
+
+
+
+
+
+
