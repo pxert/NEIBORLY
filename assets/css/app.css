@@ -403,9 +403,10 @@ footer p {
   gap: 1rem; /* Ajoute un espacement uniforme entre les éléments */
 }
 
-/* Déplace uniquement l'icône du profil à l'extrémité droite (ajustée) */
+/* Déplace uniquement l'icône de profil à l'extrémité droite (ajustée) */
 .navbar-nav .profile-icon-header {
   margin-left: auto; /* Contrôle la séparation avec les autres éléments */
+  margin-right: 6rem; /* Ajustez cette valeur pour déplacer l'icône vers la gauche */
   display: flex;
   align-items: center; /* Centre l'icône verticalement */
 }
