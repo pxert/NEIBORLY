@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 get_header();
 ?>
 
-<main class="container-fluid py-5" style="background-color: #D8EBE6;">
+<main class="container-fluid py-5" style="background-color: #CFD7F3;">
     <div class="container">
         <h2 class="text-center mb-5" style="color: #21398F; font-family: 'ADLaM Display', sans-serif;">Nous contactez :</h2>
 
